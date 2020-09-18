@@ -1,0 +1,14 @@
+/* --- BUTTONS --- */
+@import "../../settings/settings";
+@import "../../tools/mixins";
+
+@import '../../components/animations';
+
+%btn-clear {
+  @include box-display;
+  border: none;
+  background: transparent;
+  outline: none;
+  position: relative;
+  transition: all 300ms $base-ease;
+}

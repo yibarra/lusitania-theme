@@ -1,0 +1,60 @@
+/* --- WEBDOOR INFO --- */
+.webdoor {
+  &--info {
+    background-color: transparent;
+    align-content: center;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    height: 100%;
+    left: 0;
+    float: left;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    width: 100%;
+    vertical-align: top;
+    z-index: 3;
+
+    .slider {
+      height: auto;
+      width: auto;
+
+      &--item {
+        max-width: 700px;
+        text-align: center;
+        width: 100%;
+
+        .btn {
+          pointer-events: auto;
+        }
+
+        .title {
+          display: block;
+          margin: 0 auto 30px;
+          line-height: 1.2em;
+        }
+      }
+    }
+  }
+}
+
+/* --- QUERIES --- */
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 1024px) {
+  .webdoor {
+    &--info {
+      .slider {
+        &--item {
+          max-width: 280px;
+
+          .title {
+            font-weight: 400;
+            line-height: 1.4em;
+          }
+        }
+      }
+    }
+  }
+}

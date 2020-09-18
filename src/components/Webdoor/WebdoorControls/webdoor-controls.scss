@@ -1,0 +1,57 @@
+@import '../../../styles/settings/colors';
+@import '../../../styles/components/forms/buttons';
+
+.webdoor {
+  &--controls {
+    background-color: transparent;
+    float: left;
+    pointer-events: none;
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+    vertical-align: top;
+
+    .btn {
+      @extend %btn-clear;
+      position: absolute;
+      pointer-events: auto;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      .icon {
+        box-sizing: border-box;
+        border: 1px solid $black-900;
+        margin: 0;
+        height: 40px;
+        padding: 0;
+        pointer-events: auto;
+        transform: rotate(45deg);
+        transform-origin: center;
+        width: 40px;
+      }
+
+      &:disabled {
+        opacity: 0.7;
+      }
+
+      &[data-prev] {
+        left: 20px;
+
+        .icon {
+          border-right: none;
+          border-top: none;
+        }
+      }
+
+      &[data-next] {
+        right: 20px;
+
+        .icon {
+          border-left: none;
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

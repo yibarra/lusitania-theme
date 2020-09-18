@@ -1,4 +1,4 @@
-import React, { useCallback, FunctionComponent } from 'react';
+import React, { memo, FunctionComponent } from 'react';
 
 import { animated as a } from 'react-spring';
 
@@ -10,14 +10,6 @@ import './webdoor-item.scss';
 const WebdoorItem: FunctionComponent<IWebdoorItem> = ({ display, drag, i, scale, x, items }) => {
   // item
   const item: any = items[i];
-  
-  // cleaner
-  const cleaner = useCallback((content: string) => {
-    const init = content.replace('<p>', '');
-    const end = init.replace('</p>', '');
-
-    return end;
-  }, []);
 
   // render
   return (
@@ -27,10 +19,10 @@ const WebdoorItem: FunctionComponent<IWebdoorItem> = ({ display, drag, i, scale,
       key={i}
       style={{ display, transform: x.to((value: any) => `translate3d(${value}px,0,0)`) }}>
         <a.div style={{ scale }}>
-          <div dangerouslySetInnerHTML={{ __html: cleaner(item.content.rendered) }}></div>
+          <div dangerouslySetInnerHTML={{ __html: item.content.rendered }}></div>
         </a.div>
     </a.div>
   );
 };
 
-export default WebdoorItem;
+export default memo(WebdoorItem);

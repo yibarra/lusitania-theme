@@ -1,0 +1,76 @@
+.webdoor {
+  &--footer {
+    bottom: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 150px;
+    left: 0;
+    position: absolute;
+    width: calc(250px * 2);
+    vertical-align: top;
+
+    &--item,
+    &--list {
+      box-sizing: border-box;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      vertical-align: top;
+    }
+
+    &--item {
+      display: none;
+      left: 0;
+      height: 100%;
+      position: absolute;
+      width: 50%;
+
+      .images {
+        box-sizing: border-box;
+        display: inline-block;
+        float: left;
+        position: relative;
+        width: 100%;
+
+        figure {
+          box-sizing: border-box;
+          display: none;
+          height: 100%;
+          margin: 0;
+          overflow: hidden;
+          position: relative;
+          width: 100%;
+
+          img {
+            box-sizing: border-box;
+            display: inline-block;
+            height: 100%;
+            position: relative;
+            object-fit: contain;
+            width: 100%;
+          }
+
+          &:first-child {
+            display: inline-block;
+          }
+        }
+      }
+
+      &[data-current="true"] {
+        display: inline-block;
+      }
+
+      &[data-last="true"] {
+        display: inline-block;
+        left: 50%;
+      }
+    }
+
+    &--list {
+      float: left;
+      list-style: none;
+      width: 100%;
+    }
+  }
+}

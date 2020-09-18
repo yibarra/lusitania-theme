@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { memo, FunctionComponent } from 'react';
 
 import { IWebdoorControls } from './interfaces';
 
@@ -20,4 +20,4 @@ const WebdoorControls: FunctionComponent<IWebdoorControls> = ({ current, count, 
   );
 };
 
-export default WebdoorControls;
+export default memo(WebdoorControls);

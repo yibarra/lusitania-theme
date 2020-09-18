@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useCallback, useEffect, useState } from 'react';
+import React, { FunctionComponent, useCallback, memo, useEffect, useState } from 'react';
 
 import WebdoorContent from './WebdoorContent';
 
@@ -32,4 +32,4 @@ const Webdoor: FunctionComponent<IWebdoor> = ({ category, getPostByCategoryName 
   );
 };
 
-export default Webdoor;
+export default memo(Webdoor);

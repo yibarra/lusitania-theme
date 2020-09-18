@@ -1,6 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import React, { memo, FunctionComponent } from 'react';
 
 import WebdoorControls from '../WebdoorControls';
+import WebdoorFooter from '../WebdoorFooter';
 
 import { IWebdoorInfo } from './interfaces';
 
@@ -12,8 +13,10 @@ const WebdoorInfo: FunctionComponent<IWebdoorInfo> = ({ current, last, onPrevNex
   return (
     <div className="webdoor--info">
       <WebdoorControls count={items.length} current={current} onPrevNext={onPrevNext} />
+
+      <WebdoorFooter current={current} last={last} items={items} />
     </div>
   );
 };
 
-export default WebdoorInfo;
+export default memo(WebdoorInfo);

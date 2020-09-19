@@ -22,7 +22,7 @@ const Webdoor: FunctionComponent<IWebdoor> = ({ category, getPostByCategoryName 
   // use effect
   useEffect(() => {
     load(category);
-  }, [ category ]);
+  }, [ category, load ]);
   
   // render
   return (

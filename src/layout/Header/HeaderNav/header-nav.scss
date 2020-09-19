@@ -1,0 +1,25 @@
+@import '../../../styles/settings/colors';
+@import '../../../styles/settings/fonts';
+
+@import '../../../styles/tools/mixins';
+
+.header {
+  &--nav {
+    box-sizing: border-box;
+    display: inline-block;
+
+    &--item {
+      @include font($font-default, 12px, 400, $brown-900);
+      box-sizing: border-box;
+      display: inline-block;
+      line-height: 1em;
+      letter-spacing: 0.01em;
+      margin: 0;
+      padding: 25px 20px;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      vertical-align: top;
+    }
+  }
+}

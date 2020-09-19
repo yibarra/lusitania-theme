@@ -22,7 +22,7 @@ export default function SliderBase(Component: any) {
       const { items }: any = this.props;
 
       this.setState({
-        items,
+        items
       });
     }
 

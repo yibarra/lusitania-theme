@@ -59,11 +59,11 @@
 
       &[data-current="true"] {
         display: inline-block;
+        left: 50%;
       }
 
       &[data-last="true"] {
         display: inline-block;
-        left: 50%;
       }
     }
 

@@ -1,0 +1,13 @@
+@import '../../styles/settings/settings';
+
+.header {
+  background-color: $white-900;
+  box-sizing: border-box;
+  left: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  vertical-align: top;
+  z-index: 999;
+}

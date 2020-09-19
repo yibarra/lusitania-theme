@@ -13,7 +13,7 @@ const WebdoorFooter: FunctionComponent<IWebdoorFooter> = ({ current, last, items
         {items && items.map(({ content: { rendered } }: any, index: number) => 
           <li
             data-current={current === index}
-            data-last={last === index}
+            data-last={last !== undefined ? last === index : (items.length - 1) === index}
             className="webdoor--footer--item" key={index}>
               <div className="images" dangerouslySetInnerHTML={{ __html: rendered }} key={index} />
             </li>)}

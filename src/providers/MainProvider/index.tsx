@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
 import { CategoriesProvider } from '../CategoriesProvider';
-import PostProvider from '../PostProvider';
+import { PostProvider } from '../PostProvider';
+import { TagsProvider } from '../TagsProvider';
 
 import { IMainProvider } from './interfaces';
 
@@ -10,9 +11,11 @@ const MainProvider: FunctionComponent<IMainProvider> = ({ children }) => {
   // render
   return (
     <CategoriesProvider>
-      <PostProvider>
-        {children}
-      </PostProvider>
+      <TagsProvider>
+        <PostProvider>
+          {children}
+        </PostProvider>
+      </TagsProvider>
     </CategoriesProvider>
   );
 };

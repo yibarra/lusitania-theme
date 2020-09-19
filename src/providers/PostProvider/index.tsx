@@ -10,7 +10,7 @@ const PostContext = createContext({} as IPostContext);
 const PostProvider: FunctionComponent<IPostProvider> = ({ children }) => {
   // get post by id
   const getPostById = useCallback((id) => {
-    
+    return axios.get(`/${id}`).then(({ data }) => data);
   }, []);
 
   // get post by category

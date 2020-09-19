@@ -3,3 +3,19 @@
 @import './../settings/settings';
 @import './../tools/mixins';
 
+p {
+  @include font($font-default, 16px, 300, $brown-900);
+  box-sizing: border-box;
+  display: inline-block;
+  line-height: 1.3em;
+  letter-spacing: 0.1em;
+  margin: 0;
+  vertical-align: top;
+
+  small {
+    @include rem('font-size', 11px);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}

@@ -11,11 +11,9 @@ import '../../styles/main.scss';
 const Main = () => {
   return (
     <MainProvider>
-      <>
-        <Header />
+      <Header />
         <Content any="tre" />
-        <Footer />
-      </>
+      <Footer />
     </MainProvider>
   );
 };

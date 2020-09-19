@@ -5,6 +5,7 @@ import { useSprings } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
 
 import SliderBase from '../../Slider/Base';
+import WebdoorControls from '../WebdoorControls';
 import WebdoorInfo from '../WebdoorInfo';
 import WebdoorItem from '../WebdoorItem';
 
@@ -65,6 +66,8 @@ const WebdoorContent: FunctionComponent<IWebdoorContent> = ({ current, items, la
         {props.map(({ x, display, scale }, i) => (
           <WebdoorItem drag={drag} items={items} display={display} scale={scale} x={x} i={i} key={i} />))}
       </div>
+
+      <WebdoorControls count={items.length} current={current} onPrevNext={onPrevNext} />
     </>
   )
 };

@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { memo, FunctionComponent } from 'react';
 
-const Header = () => {
+import HeaderNav from './HeaderNav';
+
+import { IHeader } from './interfaces';
+
+import './header.scss';
+
+// header
+const Header: FunctionComponent<IHeader> = () => {
+  // render
   return (
-    <div>
-      
-    </div>
+    <header className="header">
+      <HeaderNav />
+    </header>
   );
 };
 
-export default Header;
+export default memo(Header);

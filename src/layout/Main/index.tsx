@@ -4,6 +4,7 @@ import MainProvider from '../../providers/MainProvider';
 import Content from '../Content';
 import Footer from '../Footer';
 import Header from '../Header';
+import Loader from '../../components/Loader';
 
 import '../../styles/main.scss';
 
@@ -11,8 +12,9 @@ import '../../styles/main.scss';
 const Main = () => {
   return (
     <MainProvider>
+      <Loader />
       <Header />
-        <Content any="tre" />
+      <Content any="tre" />
       <Footer />
     </MainProvider>
   );

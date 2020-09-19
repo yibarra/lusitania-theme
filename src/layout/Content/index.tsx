@@ -15,7 +15,7 @@ const Content: FunctionComponent<IContent> = () => {
   const postContext: any = useContext(PostContext);
 
   const { getPostByCategoryName } = postContext;
-  const { getCategoryById, getCategoryByName, categories } = categoriesContext;
+  const { categories } = categoriesContext;
 
   // render
   return (

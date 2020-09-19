@@ -7,6 +7,8 @@
   &--nav {
     box-sizing: border-box;
     display: inline-block;
+    padding: 0 0 0 50px;
+    vertical-align: top;
 
     &--item {
       @include font($font-default, 12px, 400, $brown-900);
@@ -20,6 +22,17 @@
       text-decoration: none;
       text-transform: uppercase;
       vertical-align: top;
+
+      &.logo {
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+
+        .icon {
+          @include rem('font-size', 24px);
+        }
+      }
     }
   }
 }

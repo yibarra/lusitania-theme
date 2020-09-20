@@ -20,14 +20,18 @@
     &--content {
       background-color: $white-600;
       bottom: 0;
-      height: 190px;
+      height: auto;
       max-width: 500px;
-      padding: 25px;
+      padding: 40px 40px 30px;
       mix-blend-mode: normal;
       right: 0;
       pointer-events: auto;
       position: absolute;
       width: 100%;
+
+      .btn-more {
+        float: right;
+      }
     }
 
     .slider {

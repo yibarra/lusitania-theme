@@ -12,7 +12,7 @@ const WebdoorInfoAddress: FunctionComponent<IWebdoorInfoAddress> = ({ item: { ac
   // render
   return (
     <div className="webdoor--info--address">
-      <p>{cidade}, <strong>{distrito}</strong></p>
+      <p><strong>{distrito}</strong>, {cidade}</p>
     </div>
   );
 };

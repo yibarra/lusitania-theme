@@ -1,5 +1,7 @@
 import React, { FunctionComponent, memo, useCallback } from 'react';
 
+import WebdoorFooterItem from './WebdoorFooterItem';
+
 import { IWebdoorFooter } from './interfaces';
 
 import './webdoor-footer.scss';
@@ -27,17 +29,14 @@ const WebdoorFooter: FunctionComponent<IWebdoorFooter> = ({ current, items, setC
   // return
   return (
     <div className="webdoor--footer">
-      <ul className="webdoor--footer--list">
-        {items && items.map(({ content: { rendered } }: any, index: number) => 
-          <li
-            data-current={next(current, index)}
-            data-last={prev(current, index)}
-            className="webdoor--footer--item"
-            key={index}
-            onClick={() => setCurrent(index)}>
-              <div className="images" dangerouslySetInnerHTML={{ __html: rendered }} key={index} />
-            </li>)}
-      </ul>
+      {items && items.map(({ content: { rendered } }: any, index: number) => 
+        <WebdoorFooterItem
+          current={next(current, index)}
+          last={prev(current, index)}
+          index={index}
+          key={index}
+          rendered={rendered}
+          setCurrent={setCurrent} />)}
     </div>
   );
 };

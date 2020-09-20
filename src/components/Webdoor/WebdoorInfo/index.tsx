@@ -30,6 +30,11 @@ const WebdoorInfo: FunctionComponent<IWebdoorInfo> = ({ current, onPrevNext, ite
           <WebdoorInfoAddress item={item} />
           <WebdoorInfoAttributes item={item} />
           <WebdoorInfoTags tags={item.tags} getTagById={getTagById} />
+
+          <button className="btn-more">
+            <span className="text">Ver mais</span>
+            <span className="material-icons">add</span>
+          </button>
         </div>}
 
       <WebdoorFooter current={current} items={items} setCurrent={setCurrent} />

@@ -4,3 +4,32 @@ $base-duration: 600ms;
 $base-ease: cubic-bezier(0.25, 0.46, 0.45, 0.84);
 
 /* ANIMATION */
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  1% {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left-out {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  1% {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

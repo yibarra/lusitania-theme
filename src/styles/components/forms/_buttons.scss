@@ -71,17 +71,38 @@
     content: '';
     display: inline-block;
     height: 0;
-    left: 0;
+    left: -2px;
     position: absolute;
     transition: all 400ms $base-ease;
     top: 100%;
-    width: 100%;
+    width: calc(100% + 4px);
   }
 
   &[data-active="true"] {
     &:after {
-      height: 100%;
-      top: 0;
+      height: calc(100% + 4px);
+      top: -2px;
     }
+  }
+}
+
+.btn-more {
+  @extend %btn-clear;
+  padding: 0 25px 0 0;
+
+  .material-icons {
+    @include rem('font-size', 20px);
+    right: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  .text {
+    @include font($font-default, 12px, 400, $brown-900);
+    line-height: 1em;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    vertical-align: baseline;
   }
 }

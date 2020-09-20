@@ -16,7 +16,7 @@ const WebdoorInfoAttributes: FunctionComponent<IWebdoorInfoAttributes> = ({ item
 
       return <>
         <p><span>{tipo}</span></p>
-        <p><span>{area} &#13217;</span></p>
+        <p><span>{area}&#13217;</span></p>
       </>
     }
   }, []);

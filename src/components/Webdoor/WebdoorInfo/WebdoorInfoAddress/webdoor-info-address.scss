@@ -1,16 +1,12 @@
 .webdoor {
   &--info {
-    &--attributes {
+    &--address {
       box-sizing: border-box;
       display: inline-block;
-      padding: 20px 0;
+      padding: 10px 0;;
       position: relative;
       width: 100%;
       vertical-align: top;
-
-      p {
-        margin: 0 10px 0 0;
-      }
     }
   }
 }

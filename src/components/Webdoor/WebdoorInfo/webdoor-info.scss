@@ -17,19 +17,6 @@
     vertical-align: top;
     z-index: 3;
 
-    &--attributes {
-      box-sizing: border-box;
-      display: inline-block;
-      padding: 25px 0;
-      position: relative;
-      width: 100%;
-      vertical-align: top;
-
-      p {
-        margin: 0 10px 0 0;
-      }
-    }
-
     &--content {
       background-color: $white-600;
       bottom: 0;

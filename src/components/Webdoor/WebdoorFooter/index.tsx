@@ -5,7 +5,7 @@ import { IWebdoorFooter } from './interfaces';
 import './webdoor-footer.scss';
 
 // webdoor footer
-const WebdoorFooter: FunctionComponent<IWebdoorFooter> = ({ current, last, items }) => {
+const WebdoorFooter: FunctionComponent<IWebdoorFooter> = ({ current, items, setCurrent }) => {
   // next
   const next = useCallback((current: number, index: number) => {
     if ((current + 1) > (items.length - 1)) {
@@ -32,7 +32,9 @@ const WebdoorFooter: FunctionComponent<IWebdoorFooter> = ({ current, last, items
           <li
             data-current={next(current, index)}
             data-last={prev(current, index)}
-            className="webdoor--footer--item" key={index}>
+            className="webdoor--footer--item"
+            key={index}
+            onClick={() => setCurrent(index)}>
               <div className="images" dangerouslySetInnerHTML={{ __html: rendered }} key={index} />
             </li>)}
       </ul>

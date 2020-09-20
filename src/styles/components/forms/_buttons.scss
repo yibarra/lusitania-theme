@@ -12,3 +12,76 @@
   position: relative;
   transition: all 300ms $base-ease;
 }
+
+.btn-arrow {
+  @extend %btn-clear;
+  padding: 0;
+  position: absolute;
+  pointer-events: auto;
+  top: 50%;
+  transform: translate(0, -50%);
+
+  .icon {
+    box-sizing: border-box;
+    border: 2px solid $brown-900;
+    margin: 0;
+    height: 40px;
+    padding: 0;
+    pointer-events: auto;
+    transform: rotate(45deg);
+    transform-origin: center;
+    width: 40px;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+  }
+
+  &[data-prev] {
+    left: 20px;
+
+    .icon {
+      border-right: none;
+      border-top: none;
+    }
+  }
+
+  &[data-next] {
+    right: 20px;
+
+    .icon {
+      border-left: none;
+      border-bottom: none;
+    }
+  }
+}
+
+.btn-min {
+  @extend %btn-clear;
+  background-color: transparent;
+  border: 2px solid $brown-900;
+  height: 7px;
+  padding: 0;
+  position: relative;
+  width: 7px;
+
+  &:after {
+    background-color: $brown-900;
+    box-sizing: border-box;
+    content: '';
+    display: inline-block;
+    height: 0;
+    left: 0;
+    position: absolute;
+    transition: all 400ms $base-ease;
+    top: 100%;
+    width: 100%;
+  }
+
+  &[data-active="true"] {
+    &:after {
+      height: 100%;
+      top: 0;
+    }
+  }
+}

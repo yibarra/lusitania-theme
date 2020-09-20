@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { memo, FunctionComponent } from 'react';
 
 import { IWebdoorInfoTags } from './interfaces';
 
@@ -17,4 +17,4 @@ const WebdoorInfoTags: FunctionComponent<IWebdoorInfoTags> = ({ tags, getTagById
   );
 };
 
-export default WebdoorInfoTags;
+export default memo(WebdoorInfoTags);

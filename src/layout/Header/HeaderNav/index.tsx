@@ -8,14 +8,14 @@ const HeaderNav = () => {
   // render
   return (
     <nav className="header--nav">
-      <NavLink to="/" className="header--nav--item logo">
+      <NavLink to="/" className="header--nav--item logo" activeClassName="active">
         <span className="icon icon-logo"></span>
       </NavLink>
       
-      <NavLink to="/quem somos" className="header--nav--item">quem somos</NavLink>
-      <NavLink to="/" className="header--nav--item">galeria</NavLink>
-      <NavLink to="/" className="header--nav--item">mapa</NavLink>
-      <NavLink to="/" className="header--nav--item">contato</NavLink>
+      <NavLink to="/about" className="header--nav--item" activeClassName="active">quem somos</NavLink>
+      <NavLink to="/gallery" className="header--nav--item" activeClassName="active">galeria</NavLink>
+      <NavLink to="/map" className="header--nav--item" activeClassName="active">mapa</NavLink>
+      <NavLink to="/contact" className="header--nav--item" activeClassName="active">contato</NavLink>
     </nav>
   );
 };

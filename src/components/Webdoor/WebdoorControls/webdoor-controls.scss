@@ -17,46 +17,28 @@
     z-index: 10;
     vertical-align: top;
 
-    .btn {
-      @extend %btn-clear;
-      position: absolute;
+    &--item,
+    &--list {
+      box-sizing: border-box;
+      display: inline-block;
+      padding: 0;
       pointer-events: auto;
-      top: 50%;
-      transform: translate(0, -50%);
+      vertical-align: top;
+    }
 
-      .icon {
-        box-sizing: border-box;
-        border: 2px solid $brown-900;
-        margin: 0;
-        height: 40px;
-        padding: 0;
-        pointer-events: auto;
-        transform: rotate(45deg);
-        transform-origin: center;
-        width: 40px;
-      }
+    &--item {
+      margin: 0 5px;
+      position: relative;
+    }
 
-      &:disabled {
-        opacity: 0.7;
-      }
-
-      &[data-prev] {
-        left: 20px;
-
-        .icon {
-          border-right: none;
-          border-top: none;
-        }
-      }
-
-      &[data-next] {
-        right: 20px;
-
-        .icon {
-          border-left: none;
-          border-bottom: none;
-        }
-      }
+    &--list {
+      margin: 0;
+      mix-blend-mode: difference;
+      left: 50%;
+      list-style: none;
+      position: absolute;
+      top: calc(50vh + 10px);
+      transform: translate(-50%, -50%);
     }
   }
 }

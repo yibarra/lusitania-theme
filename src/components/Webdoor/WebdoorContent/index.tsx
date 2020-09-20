@@ -60,14 +60,14 @@ const WebdoorContent: FunctionComponent<IWebdoorContent> = ({ current, items, la
   // render
   return (
     <>
-      <WebdoorInfo current={current} last={last} onPrevNext={onPrevNext} items={items} />
+      <WebdoorInfo current={current} last={last} onPrevNext={onPrevNext} setCurrent={setCurrent} items={items} />
 
       <div className="webdoor--content">
         {props.map(({ x, display, scale }, i) => (
           <WebdoorItem drag={drag} items={items} display={display} scale={scale} x={x} i={i} key={i} />))}
       </div>
 
-      <WebdoorControls count={items.length} current={current} onPrevNext={onPrevNext} />
+      <WebdoorControls count={items.length} current={current} items={items} setCurrent={setCurrent} onPrevNext={onPrevNext} />
     </>
   )
 };

@@ -92,6 +92,7 @@
 
   .material-icons {
     @include rem('font-size', 20px);
+    color: $brown-900;
     right: 0;
     position: absolute;
     top: 50%;

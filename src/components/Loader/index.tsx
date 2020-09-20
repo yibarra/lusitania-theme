@@ -1,9 +1,11 @@
-import React, { memo, useState } from 'react';
+import React, { FunctionComponent, memo, useState } from 'react';
+
+import { ILoader } from './interfaces';
 
 import './loader.scss';
 
 // loader
-const Loader = () => {
+const Loader: FunctionComponent<ILoader> = () => {
   // state
   const [ load, setLoad ] = useState(false);
 

@@ -1,3 +1,5 @@
+@import '../../../styles/settings/colors';
+
 .webdoor {
   &--item {
     height: 100%;
@@ -43,6 +45,20 @@
           &:first-child {
             display: inline-block;
           }
+        }
+
+        &:after {
+          background: rgb(2,0,36);
+          background: linear-gradient(0deg, rgba($brown-900,0) 20%, rgba($brown-900,0) 30%, rgba($brown-900,0.9) 100%);
+          box-sizing: border-box;
+          content: '';
+          display: inline-block;
+          left: 0;
+          height: 100%;
+          opacity: 1;
+          position: absolute;
+          top: 0;
+          width: 100%;
         }
       }
     }

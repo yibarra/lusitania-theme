@@ -7,7 +7,7 @@ import { IWebdoorItem } from './interfaces';
 import './webdoor-item.scss';
 
 // Webdoor item
-const WebdoorItem: FunctionComponent<IWebdoorItem> = ({ display, drag, i, scale, x, items }) => {
+const WebdoorItem: FunctionComponent<IWebdoorItem> = ({ display, drag, i, x, items }) => {
   // item
   const item: any = items[i];
 
@@ -18,7 +18,7 @@ const WebdoorItem: FunctionComponent<IWebdoorItem> = ({ display, drag, i, scale,
       className="webdoor--item"
       key={i}
       style={{ display, transform: x.to((value: any) => `translate3d(${value}px,0,0)`) }}>
-        <a.div style={{ scale }}>
+        <a.div>
           <div dangerouslySetInnerHTML={{ __html: item.content.rendered }}></div>
         </a.div>
     </a.div>

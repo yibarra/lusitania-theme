@@ -5,7 +5,7 @@ import { IWebdoorFooterItem } from './interfaces';
 import './webdoor-footer-item.scss';
 
 // webdoor footer item
-const WebdoorFooterItem: FunctionComponent<IWebdoorFooterItem> = ({ current, last, index, setCurrent, rendered }) => {
+const WebdoorFooterItem: FunctionComponent<IWebdoorFooterItem> = ({ current, last, index, rendered }) => {
   // state
   const [ animation, setAnimation ] = useState({
     animationFinished: false,
@@ -31,7 +31,6 @@ const WebdoorFooterItem: FunctionComponent<IWebdoorFooterItem> = ({ current, las
   // use effect
   useEffect(() => {
     onAnimationStart();
-    console.log('vamos');
   }, [ current, onAnimationStart ]);
 
   // render
@@ -41,13 +40,14 @@ const WebdoorFooterItem: FunctionComponent<IWebdoorFooterItem> = ({ current, las
       data-finish={animation.animationFinished}
       data-current={current}
       data-last={last}
-      key={index}
-      onClick={() => setCurrent(index)}>
+      key={index}>
         <div
           className="images"
           onAnimationEnd={onAnimationEnd}
           onAnimationStart={onAnimationStart}
           dangerouslySetInnerHTML={{ __html: rendered }} key={index} />
+          
+        <p className="text-info">{current === true ? 'Seguinte': 'Anterior'}</p>
     </div>
   );
 };

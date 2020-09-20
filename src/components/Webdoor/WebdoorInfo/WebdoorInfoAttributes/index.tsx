@@ -15,8 +15,8 @@ const WebdoorInfoAttributes: FunctionComponent<IWebdoorInfoAttributes> = ({ item
       const { area, tipo }: any = acf;
 
       return <>
-        <p><span>{tipo}</span></p>
         <p><span>{area}&#13217;</span></p>
+        <p><span>{tipo}</span></p>
       </>
     }
   }, []);

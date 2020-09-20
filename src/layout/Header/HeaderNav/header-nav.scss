@@ -16,9 +16,10 @@
       box-sizing: border-box;
       display: inline-block;
       line-height: 1em;
+      height: 100%;
       letter-spacing: 0.01em;
       margin: 0;
-      padding: 25px 20px;
+      padding: 0 20px;
       position: relative;
       text-decoration: none;
       text-transform: uppercase;
@@ -39,12 +40,17 @@
 
       &.logo {
         left: 0;
+        height: 100%;
+        padding: 20px 25px;
         position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
+        top: 0;
 
         .icon {
           @include rem('font-size', 24px);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
         }
       }
 

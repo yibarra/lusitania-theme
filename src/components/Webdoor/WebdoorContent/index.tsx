@@ -8,6 +8,7 @@ import SliderBase from '../../Slider/Base';
 import WebdoorControls from '../WebdoorControls';
 import WebdoorInfo from '../WebdoorInfo';
 import WebdoorItem from '../WebdoorItem';
+import WebdoorSlogan from '../WebdoorSlogan';
 
 import { IWebdoorContent } from './interfaces';
 
@@ -18,7 +19,6 @@ const WebdoorContent: FunctionComponent<IWebdoorContent> = ({ current, items, la
   // props set
   const [ props, set ] = useSprings(items.length, (i: any) => ({
     x: i * window.innerWidth,
-    scale: 1,
     display: 'block'
   })) || undefined;
 
@@ -34,8 +34,7 @@ const WebdoorContent: FunctionComponent<IWebdoorContent> = ({ current, items, la
       if (i < current - 1 || i > current + 1) return { display: 'none' };
 
       const x: number = (i - current) * window.innerWidth + (down ? mx : 0);
-      const scale: number = down ? 1 - distance / window.innerWidth / 2 : 1;
-      return { x, scale, display: 'block' };
+      return { x, display: 'block' };
     });
   });
 
@@ -48,9 +47,7 @@ const WebdoorContent: FunctionComponent<IWebdoorContent> = ({ current, items, la
         }
   
         const x: any = (i - current) * window.innerWidth;
-        const scale: number = 1;
-  
-        return { x, scale, display: 'block' };
+        return { x, display: 'block' };
       });
     };
 
@@ -60,14 +57,32 @@ const WebdoorContent: FunctionComponent<IWebdoorContent> = ({ current, items, la
   // render
   return (
     <>
-      <WebdoorInfo current={current} last={last} onPrevNext={onPrevNext} setCurrent={setCurrent} items={items} />
+      <WebdoorSlogan />
+
+      <WebdoorInfo
+        current={current}
+        last={last}
+        onPrevNext={onPrevNext}
+        setCurrent={setCurrent}
+        items={items} />
 
       <div className="webdoor--content">
-        {props.map(({ x, display, scale }, i) => (
-          <WebdoorItem drag={drag} items={items} display={display} scale={scale} x={x} i={i} key={i} />))}
+        {props.map(({ x, display }, i) => (
+          <WebdoorItem 
+            drag={drag} 
+            items={items} 
+            display={display}
+            x={x} 
+            i={i} 
+            key={i} />))}
       </div>
 
-      <WebdoorControls count={items.length} current={current} items={items} setCurrent={setCurrent} onPrevNext={onPrevNext} />
+      <WebdoorControls
+        count={items.length}
+        current={current}
+        items={items}
+        setCurrent={setCurrent}
+        onPrevNext={onPrevNext} />
     </>
   )
 };

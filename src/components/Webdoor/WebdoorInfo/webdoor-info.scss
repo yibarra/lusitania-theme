@@ -20,9 +20,9 @@
     &--content {
       background-color: $white-600;
       bottom: 0;
-      height: auto;
+      height: 150px;
       max-width: 500px;
-      padding: 40px 40px 30px;
+      padding: 30px 40px 20px;
       mix-blend-mode: normal;
       right: 0;
       pointer-events: auto;
@@ -31,6 +31,8 @@
 
       .btn-more {
         float: right;
+        margin: 20px 0 0;
+        right: -20px;
       }
     }
 

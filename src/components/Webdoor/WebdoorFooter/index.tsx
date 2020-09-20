@@ -35,8 +35,7 @@ const WebdoorFooter: FunctionComponent<IWebdoorFooter> = ({ current, items, setC
           last={prev(current, index)}
           index={index}
           key={index}
-          rendered={rendered}
-          setCurrent={setCurrent} />)}
+          rendered={rendered} />)}
     </div>
   );
 };

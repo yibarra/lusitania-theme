@@ -1,6 +1,8 @@
 @import '../../../../styles/settings/colors';
+@import '../../../../styles/settings/fonts';
 
 @import '../../../../styles/components/animations';
+@import '../../../../styles/tools/mixins';
 
 .webdoor {
   &--footer {
@@ -57,12 +59,26 @@
         }
       }
 
+      .text-info {
+        @include rem('font-size', 11px);
+        box-sizing: border-box;
+        bottom: 10px;
+        color: $white-900;
+        position: absolute;
+        text-transform: uppercase;
+        z-index: 2;
+      }
+
       &[data-current="true"] {
         display: inline-block;
         left: 50%;
         
         .images {
           animation: slide-in-left-out 400ms $base-ease forwards;
+        }
+
+        .text-info {
+          right: 20px;
         }
       }
       
@@ -71,6 +87,10 @@
         
         .images {
           animation: slide-in-left 400ms $base-ease forwards;
+        }
+
+        .text-info {
+          left: 20px;
         }
       }
 

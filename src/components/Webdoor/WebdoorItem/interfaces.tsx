@@ -2,7 +2,7 @@ export interface IWebdoorItem {
   display: any;
   drag: any;
   i: number;
-  scale: any;
+  scale?: any;
   x: any;
   items: any[];
 }

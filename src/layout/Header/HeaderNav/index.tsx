@@ -3,6 +3,13 @@ import { NavLink } from 'react-router-dom';
 
 import './header-nav.scss';
 
+/*
+<NavLink to="/about" className="header--nav--item" activeClassName="active">quem somos</NavLink>
+      <NavLink to="/gallery" className="header--nav--item" activeClassName="active">galeria</NavLink>
+      <NavLink to="/map" className="header--nav--item" activeClassName="active">mapa</NavLink>
+      <NavLink to="/contact" className="header--nav--item" activeClassName="active">contato</NavLink>
+      */
+
 // header nav
 const HeaderNav = () => {
   // render
@@ -12,10 +19,7 @@ const HeaderNav = () => {
         <span className="icon icon-logo"></span>
       </NavLink>
       
-      <NavLink to="/about" className="header--nav--item" activeClassName="active">quem somos</NavLink>
-      <NavLink to="/gallery" className="header--nav--item" activeClassName="active">galeria</NavLink>
-      <NavLink to="/map" className="header--nav--item" activeClassName="active">mapa</NavLink>
-      <NavLink to="/contact" className="header--nav--item" activeClassName="active">contato</NavLink>
+      
     </nav>
   );
 };

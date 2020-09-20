@@ -18,11 +18,17 @@ const PostProvider: FunctionComponent<IPostProvider> = ({ children }) => {
     return axios.get(`/${typePost}?filter=${categoryName}&per_page=10`).then(({ data }) => data);
   }, []);
 
+  // get post by id
+  const getCustomPostById = useCallback((typePost: string, id: number) => {
+    return axios.get(`/${typePost}/${id}`).then(({ data }) => data);
+  }, []);
+
   // render
   return (
     <PostContext.Provider value={{
       getPostByCategoryName,
-      getPostById
+      getPostById,
+      getCustomPostById
     }}>
       {children}
     </PostContext.Provider>

@@ -1,10 +1,11 @@
-import React, { FunctionComponent, useContext } from 'react';
+import React, { FunctionComponent, memo, useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { CategoriesContext } from '../../providers/CategoriesProvider';
 import { PostContext } from '../../providers/PostProvider';
 
 import Home from '../../pages/Home';
+import House from '../../pages/House';
 
 import { IContent } from './interfaces';
 
@@ -14,7 +15,7 @@ const Content: FunctionComponent<IContent> = () => {
   const categoriesContext: any = useContext(CategoriesContext);
   const postContext: any = useContext(PostContext);
 
-  const { getPostByCategoryName } = postContext;
+  const { getPostByCategoryName, getCustomPostById } = postContext;
   const { categories } = categoriesContext;
 
   // render
@@ -23,12 +24,17 @@ const Content: FunctionComponent<IContent> = () => {
       <Switch>
         <Route
           exact
-          path={`/`}>
+          path={'/'}>
             <Home getPostByCategoryName={getPostByCategoryName} categories={categories} />
           </Route>
+
+        <Route
+          path={'/house/:id'}>
+            <House getCustomPostById={getCustomPostById} />
+        </Route>
       </Switch>
     </div>
   );
 };
 
-export default Content;
+export default memo(Content);

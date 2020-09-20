@@ -3,8 +3,19 @@
 @import './../settings/settings';
 @import './../tools/mixins';
 
+h6 {
+  @include font($font-default, 20px, 300, $brown-900);
+  box-sizing: border-box;
+  display: inline-block;
+  line-height: 1.4em;
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-indent: -1px;
+  vertical-align: top;
+}
+
 p {
-  @include font($font-default, 16px, 300, $brown-900);
+  @include font($font-default, 14px, 300, $brown-900);
   box-sizing: border-box;
   display: inline-block;
   line-height: 1.3em;

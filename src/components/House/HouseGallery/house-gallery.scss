@@ -39,5 +39,12 @@
         }
       }
     }
+
+    .number--text {
+      right: 20px;
+      position: absolute;
+      top: 80px;
+      z-index: 2;
+    }
   }
 }

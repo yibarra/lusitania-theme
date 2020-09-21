@@ -6,26 +6,16 @@ import './webdoor-footer-item.scss';
 
 // webdoor footer item
 const WebdoorFooterItem: FunctionComponent<IWebdoorFooterItem> = ({ current, last, index, rendered }) => {
-  // state
-  const [ animation, setAnimation ] = useState({
-    animationFinished: false,
-    showAnimationStartLabel: false
-  });
+  const [ animation, setAnimation ] = useState({ animationFinished: false });
 
   // on animation start
   const onAnimationStart = useCallback(() => {
-    setAnimation({
-      animationFinished: false,
-      showAnimationStartLabel: true,
-    });
+    setAnimation({ animationFinished: false });
   }, [ setAnimation ]);
 
   // on animation finished
   const onAnimationEnd = useCallback(() => {
-    setAnimation({
-      animationFinished: true,
-      showAnimationStartLabel: false,
-    });
+    setAnimation({ animationFinished: true });
   }, [ setAnimation ]);
 
   // use effect

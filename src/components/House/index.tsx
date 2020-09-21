@@ -13,7 +13,7 @@ const House: FunctionComponent<IHouse> = ({ item }) => {
   return (
     <div className="house">
       <HouseGallery item={item} />
-      
+
       <HouseInfo item={item} />
     </div>
   );

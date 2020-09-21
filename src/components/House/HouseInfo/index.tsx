@@ -1,16 +1,25 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
+
+import ListAddress from '../../List/ListAddress';
+import ListAttributes from '../../List/ListAttributes';
 
 import { IHouseInfo } from './interfaces';
 
 import './house-info.scss';
-import ListAddress from '../../List/ListAddress';
-import ListAttributes from '../../List/ListAttributes';
 
 // house info
 const HouseInfo: FunctionComponent<IHouseInfo> = ({ item }) => {
+  // state
+  const [ active, setActive ]: any = useState(false);
+
   // render
   return (
-    <div className="house--info">
+    <div className="house--info" data-active={active}>
+      <button className="btn-clear" data-active={active} onClick={() => setActive(!active)}>
+        <span className="material-icons">fullscreen</span>
+        <span className="material-icons">fullscreen_exit</span>
+      </button>
+
       <div className="house--info--title">
         <h2>{item.title.rendered}</h2>
 

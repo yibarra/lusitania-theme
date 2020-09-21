@@ -1,5 +1,7 @@
 @import '../../../styles/settings/colors';
 
+@import '../../../styles/components/animations';
+
 .webdoor {
   &--info {
     background-color: transparent;
@@ -36,6 +38,16 @@
       }
     }
 
+    &.animation {
+      .webdoor--info--content {
+        .list--address,
+        .list--attributes,
+        > h6 {
+          animation: enter-info-up 400ms 0s $base-ease forwards;
+        }
+      }
+    }
+
     .slider {
       height: auto;
       width: auto;
@@ -59,4 +71,17 @@
   }
 }
 
-/* --- QUERIES --- */
+@keyframes enter-info-up {
+  0% {
+    opacity: 0;
+    transform: translate(0, 100%);
+  }
+  50% {
+    opacity: 0;
+    transform: translate(0, 100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0%);
+  }
+}

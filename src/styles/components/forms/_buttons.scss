@@ -13,6 +13,31 @@
   transition: all 300ms $base-ease;
 }
 
+.btn-clear {
+  @extend %btn-clear;
+  padding: 0;
+
+  span {
+    box-sizing: border-box;
+    color: $brown-900;
+    display: inline-block;
+    
+    &:last-child {
+      display: none;
+    }
+  }
+
+  &[data-active="true"] {
+    span {
+      display: none;
+
+      &:last-child {
+        display: inline-block;
+      }
+    }
+  }
+}
+
 .btn-arrow {
   @extend %btn-clear;
   padding: 0;

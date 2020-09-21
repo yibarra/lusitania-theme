@@ -4,6 +4,7 @@ import clamp from 'lodash-es/clamp';
 import { useSprings } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
 
+import NumberText from '../../NumberText';
 import SliderBase from '../../Slider/Base';
 import WebdoorControls from '../WebdoorControls';
 import WebdoorInfo from '../WebdoorInfo';
@@ -83,6 +84,8 @@ const WebdoorContent: FunctionComponent<IWebdoorContent> = ({ current, items, la
         items={items}
         setCurrent={setCurrent}
         onPrevNext={onPrevNext} />
+
+      <NumberText current={current} count={items.length} type={1} />
     </>
   )
 };

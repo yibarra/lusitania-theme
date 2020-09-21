@@ -1,6 +1,7 @@
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/fonts';
 
+@import '../../../styles/components/animations';
 @import '../../../styles/tools/mixins';
 
 .house {
@@ -11,6 +12,7 @@
     max-width: 600px;
     padding: 60px 40px 0;
     position: absolute;
+    transition: left 300ms $base-ease;
     top: 0;
     width: 50%;
 
@@ -32,8 +34,20 @@
       }
     }
 
+    .btn-clear {
+      background-color: rgba($white-600, 0.7);
+      left: 100%;
+      padding: 10px 15px;
+      position: absolute;
+      top: 60px;
+    }
+
     h2 {
       margin: 40px 0 0;
+    }
+
+    &[data-active="true"] {
+      left: -600px;
     }
   }
 }

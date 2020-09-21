@@ -1,0 +1,17 @@
+.house {
+  &--gallery {
+    &--control {
+      box-sizing: border-box;
+      display: inline-block;
+      right: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: calc(100vw - 550px);
+      
+      &[data-active="true"] {
+        width: 100%;
+      }
+    }
+  }
+}

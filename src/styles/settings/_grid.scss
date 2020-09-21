@@ -31,6 +31,10 @@ body {
   height: auto;
   min-height: 100vh;
   overflow: hidden;
+
+  > script {
+    display: none;
+  }
 }
 
 #root {

@@ -4,16 +4,17 @@ import clamp from 'lodash-es/clamp';
 import { useSprings } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
 
+import HouseGalleryItem from './HouseGalleryItem';
+import HouseGalleryControl from './HouseGalleryControl';
 import NumberText from '../../NumberText';
 import SliderBase from '../../Slider/Base';
 
 import { IHouseGallery } from './interfaces';
 
 import './house-gallery.scss';
-import HouseGalleryItem from './HouseGalleryItem';
 
 // house gallery
-const HouseGallery: FunctionComponent<IHouseGallery> = ({ current, items, setCurrent, item }) => {
+const HouseGallery: FunctionComponent<IHouseGallery> = ({ active, current, items, setCurrent, item, onPrevNext }) => {
   // state
   const [ props, set ] = useSprings(items.length, (i: any) => ({
     x: i * window.innerWidth,
@@ -65,7 +66,8 @@ const HouseGallery: FunctionComponent<IHouseGallery> = ({ current, items, setCur
             key={i} />))}
       </div>
 
-      <NumberText current={0} count={5} type={1} />
+      <HouseGalleryControl active={active} current={current} count={items.length - 1} onPrevNext={onPrevNext} />
+      <NumberText current={current} count={items.length - 1} type={1} />
     </div>
   );
 };

@@ -4,4 +4,5 @@ export interface IHouseGallery {
   current: number;
   items: any[],
   setCurrent: (value: any) => any;
+  onPrevNext: (value: any) => any;
 }

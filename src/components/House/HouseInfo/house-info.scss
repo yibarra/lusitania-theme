@@ -9,12 +9,11 @@
     background-color: rgba($white-600, 0.7);
     left: 0;
     height: 100vh;
-    max-width: 600px;
     padding: 60px 40px 0;
     position: absolute;
     transition: left 300ms $base-ease;
     top: 0;
-    width: 50%;
+    width: 550px;
 
     &--title {
       .list--address {

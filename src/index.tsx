@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import axios from 'axios';
 import * as serviceWorker from './serviceWorker';
@@ -14,11 +14,11 @@ axios.interceptors.response.use(response => response, error => Promise.reject(er
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter basename="/">
       <MainProvider>
         <Main />
       </MainProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

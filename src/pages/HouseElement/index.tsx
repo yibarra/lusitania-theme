@@ -1,12 +1,14 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent, memo, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
-import { IHouse } from './interfaces';
+import House from '../../components/House';
 
-import './house.scss';
+import { IHousePage } from './interfaces';
+
+import './house-page.scss';
 
 // house
-const House: FunctionComponent<IHouse> = ({ getCustomPostById }) => {
+const HousePage: FunctionComponent<IHousePage> = ({ getCustomPostById }) => {
   const { id }: any = useParams(); // params
   const [ house, setHouse ]: any = useState(null);
 
@@ -24,12 +26,10 @@ const House: FunctionComponent<IHouse> = ({ getCustomPostById }) => {
 
   // render
   return (
-    <div className="house">
-      {house && <>
-        <h1>{house.title.rendered}</h1>
-      </>}
+    <div className="house-page">
+      {house && <House item={house} />}
     </div>
   );
 };
 
-export default House;
+export default memo(HousePage);

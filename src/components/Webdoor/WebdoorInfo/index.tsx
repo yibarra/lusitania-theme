@@ -1,9 +1,10 @@
 import React, { memo, FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import WebdoorInfoAddress from './WebdoorInfoAddress';
+import ListAddress from '../../List/ListAddress';
+import ListAttributes from '../../List/ListAttributes';
+
 import WebdoorFooter from '../WebdoorFooter';
-import WebdoorInfoAttributes from './WebdoorInfoAttributes';
 
 import { IWebdoorInfo } from './interfaces';
 
@@ -20,8 +21,8 @@ const WebdoorInfo: FunctionComponent<IWebdoorInfo> = ({ current, onPrevNext, ite
         <div className="webdoor--info--content">
           <h6 dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
 
-          <WebdoorInfoAddress item={item} />
-          <WebdoorInfoAttributes item={item} />
+          <ListAddress item={item} />
+          <ListAttributes item={item} />
 
           <NavLink className="btn-more" to={`/house/${item.id}`}>
             <span className="text">Ver casa</span>

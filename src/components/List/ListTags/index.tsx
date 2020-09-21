@@ -1,14 +1,14 @@
 import React, { memo, FunctionComponent } from 'react';
 
-import { IWebdoorInfoTags } from './interfaces';
+import { IListTags } from './interfaces';
 
-import './webdoor-info-tags.scss';
+import './list-tags.scss';
 
 // webdoor info tags
-const WebdoorInfoTags: FunctionComponent<IWebdoorInfoTags> = ({ tags, getTagById }) => {
+const ListTags: FunctionComponent<IListTags> = ({ tags, getTagById }) => {
   // render
   return (
-    <div className="webdoor--info--tags">
+    <div className="list--tags">
       {tags && tags.map((item: any, index: number) => 
         <p className="tag" key={index}>
           <small>{getTagById(item).name}</small>
@@ -17,4 +17,4 @@ const WebdoorInfoTags: FunctionComponent<IWebdoorInfoTags> = ({ tags, getTagById
   );
 };
 
-export default memo(WebdoorInfoTags);
+export default memo(ListTags);

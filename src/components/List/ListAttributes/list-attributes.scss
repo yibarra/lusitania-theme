@@ -1,0 +1,23 @@
+.list {
+  &--attributes {
+    box-sizing: border-box;
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 20px 0 10px;
+    position: relative;
+    width: 50%;
+    vertical-align: top;
+
+    li {
+      box-sizing: border-box;
+      display: inline-block;
+      position: relative;
+      vertical-align: top;
+    }
+
+    p {
+      margin: 0 10px 0 0;
+    }
+  }
+}

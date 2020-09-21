@@ -1,0 +1,11 @@
+.list {
+  &--address {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0 0 5px;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    vertical-align: top;
+  }
+}

@@ -5,7 +5,7 @@ import { CategoriesContext } from '../../providers/CategoriesProvider';
 import { PostContext } from '../../providers/PostProvider';
 
 import Home from '../../pages/Home';
-import House from '../../pages/House';
+import HouseElement from '../../pages/HouseElement';
 
 import { IContent } from './interfaces';
 
@@ -30,7 +30,7 @@ const Content: FunctionComponent<IContent> = () => {
 
         <Route
           path={'/house/:id'}>
-            <House getCustomPostById={getCustomPostById} />
+            <HouseElement getCustomPostById={getCustomPostById} />
         </Route>
       </Switch>
     </div>

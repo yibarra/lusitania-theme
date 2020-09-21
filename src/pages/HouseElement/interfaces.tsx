@@ -1,3 +1,3 @@
-export interface IHouse {
+export interface IHousePage {
   getCustomPostById: (type: string, value: number) => any;
 }

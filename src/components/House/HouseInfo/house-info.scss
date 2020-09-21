@@ -1,0 +1,39 @@
+@import '../../../styles/settings/colors';
+@import '../../../styles/settings/fonts';
+
+@import '../../../styles/tools/mixins';
+
+.house {
+  &--info {
+    background-color: rgba($white-600, 0.7);
+    left: 0;
+    height: 100vh;
+    max-width: 600px;
+    padding: 60px 40px 0;
+    position: absolute;
+    top: 0;
+    width: 50%;
+
+    &--title {
+      .list--address {
+        margin: 0;
+      }
+
+      .list--attributes {
+        padding: 10px 0;
+      }
+
+      > p {
+        &:last-of-type {
+          @include rem('font-size', 12px);
+          line-height: 1.6em;
+          margin: 20px 0 0;
+        }
+      }
+    }
+
+    h2 {
+      margin: 40px 0 0;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import ListAddress from '../../List/ListAddress';
 import ListAttributes from '../../List/ListAttributes';
@@ -8,10 +8,7 @@ import { IHouseInfo } from './interfaces';
 import './house-info.scss';
 
 // house info
-const HouseInfo: FunctionComponent<IHouseInfo> = ({ item }) => {
-  // state
-  const [ active, setActive ]: any = useState(false);
-
+const HouseInfo: FunctionComponent<IHouseInfo> = ({ item, active, setActive }) => {
   // render
   return (
     <div className="house--info" data-active={active}>

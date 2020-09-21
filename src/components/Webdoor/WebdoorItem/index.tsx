@@ -1,5 +1,4 @@
 import React, { memo, FunctionComponent } from 'react';
-
 import { animated as a } from 'react-spring';
 
 import { IWebdoorItem } from './interfaces';

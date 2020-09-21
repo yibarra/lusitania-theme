@@ -1,0 +1,12 @@
+.house {
+  &--gallery {
+    &--item {
+      box-sizing: border-box;
+      display: inline-block;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      will-change: transform;
+    }
+  }
+}

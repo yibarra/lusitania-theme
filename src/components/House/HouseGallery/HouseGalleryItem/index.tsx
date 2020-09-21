@@ -1,12 +1,21 @@
-import React, { memo } from 'react';
+import React, { FunctionComponent, memo } from 'react';
+import { animated as a } from 'react-spring';
+
+import { IHouseGalleryItem } from './interfaces';
+
+import './house-gallery-item.scss';
 
 // house gallery item
-const HouseGalleryItem = () => {
+const HouseGalleryItem: FunctionComponent<IHouseGalleryItem> = ({ display, drag, i, x, items }) => {
   // render
   return (
-    <div className="house--gallery--item">
-      item
-    </div>
+    <a.div
+      {...drag()}
+      className="house--gallery--item"
+      key={i}
+      style={{ display, transform: x.to((value: any) => `translate3d(${value}px,0,0)`) }}>
+        <a.div>{items[i + 1]}</a.div>
+    </a.div>
   );
 };
 

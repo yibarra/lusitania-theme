@@ -14,7 +14,7 @@ const HouseGalleryItem: FunctionComponent<IHouseGalleryItem> = ({ display, drag,
       className="house--gallery--item"
       key={i}
       style={{ display, transform: x.to((value: any) => `translate3d(${value}px,0,0)`) }}>
-        <a.div>{items[i + 1]}</a.div>
+        <a.div>{items[i]}</a.div>
     </a.div>
   );
 };

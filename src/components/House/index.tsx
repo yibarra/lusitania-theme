@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Fragment, memo, createElement, useState } from 'react';
+import React, { FunctionComponent, useCallback, memo, useState } from 'react';
 import parse from 'html-react-parser';
 
 import HouseInfo from './HouseInfo';
@@ -13,8 +13,11 @@ const House: FunctionComponent<IHouse> = ({ item }) => {
   // state
   const [ active, setActive ]: any = useState(false);
 
-  const filterImage = useCallback(() => {
-
+  // filter images
+  const filterImages = useCallback((items: any[]) => {
+    if (!Array.isArray(items)) return [];
+    
+    return items.filter((item: any) => item instanceof Object);
   }, []);
 
   // images
@@ -32,7 +35,7 @@ const House: FunctionComponent<IHouse> = ({ item }) => {
     <div className="house" data-active={active}>
       {item.content &&
         <>
-          <HouseGallery active={active} item={item} items={images} />
+          <HouseGallery active={active} item={item} items={filterImages(images)} />
           <HouseInfo active={active} item={item} setActive={setActive} />
         </>}
     </div>

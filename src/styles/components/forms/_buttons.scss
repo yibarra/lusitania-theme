@@ -81,6 +81,22 @@
   }
 }
 
+.btn-map {
+  @extend %btn-clear;
+  @include font($font-default, 12px, 300, $brown-900);
+  line-height: 1em;
+  letter-spacing: 0.01em;
+  padding: 15px 20px;
+  position: relative;
+
+  .material-icons {
+    left: -10px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
 .btn-min {
   @extend %btn-clear;
   background-color: transparent;

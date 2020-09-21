@@ -1,0 +1,19 @@
+.house {
+  &--info {
+    &--header {
+      box-sizing: border-box;
+      display: inline-block;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      vertical-align: top;
+
+      .btn-map {
+        right: 0;
+        position: absolute;
+        top: 60px;
+      }
+    }
+  }
+}

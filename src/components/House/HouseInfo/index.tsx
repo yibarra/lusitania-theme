@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
+import HouseInfoAttributes from './HouseInfoAttributes';
 import ListAddress from '../../List/ListAddress';
 import ListAttributes from '../../List/ListAttributes';
-import ListTags from '../../List/ListTags';
 
 import { IHouseInfo } from './interfaces';
 
@@ -13,6 +13,8 @@ const HouseInfo: FunctionComponent<IHouseInfo> = ({ item, active, setActive }) =
   // render
   return (
     <div className="house--info" data-active={active}>
+      
+
       <button className="btn-clear" data-active={active} onClick={() => setActive(!active)}>
         <span className="material-icons">fullscreen</span>
         <span className="material-icons">fullscreen_exit</span>
@@ -28,10 +30,7 @@ const HouseInfo: FunctionComponent<IHouseInfo> = ({ item, active, setActive }) =
           <p>{item.acf.descripcao}</p>}
       </div>
 
-      <div className="house--info--attributes">
-        <h6>Caracteristicas Gerais</h6>
-        {item.tags && <ListTags tags={item.tags} />}
-      </div>
+      <HouseInfoAttributes tags={item.tags} acf={item.acf} />
     </div>
   );
 };

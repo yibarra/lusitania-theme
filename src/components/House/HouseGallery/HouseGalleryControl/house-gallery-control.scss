@@ -6,6 +6,7 @@
       box-sizing: border-box;
       display: inline-block;
       right: 0;
+      mix-blend-mode: difference;
       position: absolute;
       top: 50%;
       transition: width 400ms $base-ease;

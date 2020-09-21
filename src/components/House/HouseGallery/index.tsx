@@ -7,7 +7,6 @@ import { useDrag } from 'react-use-gesture';
 import HouseGalleryItem from './HouseGalleryItem';
 import HouseGalleryControl from './HouseGalleryControl';
 import HouseGalleryControlFooter from './HouseGalleryControlFooter';
-import HouseGalleryNextPrev from './HouseGalleryNextPrev';
 import NumberText from '../../NumberText';
 import SliderBase from '../../Slider/Base';
 
@@ -69,7 +68,6 @@ const HouseGallery: FunctionComponent<IHouseGallery> = ({ active, current, items
       </div>
 
       <HouseGalleryControl active={active} current={current} count={items.length - 1} onPrevNext={onPrevNext} />
-      <HouseGalleryNextPrev current={current} items={items} />
       <HouseGalleryControlFooter current={current} count={items.length - 1} setCurrent={setCurrent} />
 
       <NumberText current={current} count={items.length - 1} type={1} />

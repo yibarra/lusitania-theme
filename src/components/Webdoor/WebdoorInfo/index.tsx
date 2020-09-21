@@ -48,7 +48,7 @@ const WebdoorInfo: FunctionComponent<IWebdoorInfo> = ({ current, items, setCurre
       onAnimationStart={onAnimationStart}>
       {item && 
         <div className="webdoor--info--content">
-          <h6 dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+          <h4 dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
 
           <ListAddress item={item} />
           <ListAttributes item={item} />

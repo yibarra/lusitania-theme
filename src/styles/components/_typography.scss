@@ -4,6 +4,17 @@
 @import './../tools/mixins';
 
 h6 {
+  @include font($font-default, 18px, 300, $brown-900);
+  box-sizing: border-box;
+  display: inline-block;
+  line-height: 1.4em;
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-indent: -1px;
+  vertical-align: top;
+}
+
+h4 {
   @include font($font-default, 20px, 300, $brown-900);
   box-sizing: border-box;
   display: inline-block;

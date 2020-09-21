@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 
 import ListAddress from '../../List/ListAddress';
 import ListAttributes from '../../List/ListAttributes';
+import ListTags from '../../List/ListTags';
 
 import { IHouseInfo } from './interfaces';
 
@@ -25,6 +26,11 @@ const HouseInfo: FunctionComponent<IHouseInfo> = ({ item, active, setActive }) =
 
         {item.acf &&
           <p>{item.acf.descripcao}</p>}
+      </div>
+
+      <div className="house--info--attributes">
+        <h6>Caracteristicas Gerais</h6>
+        {item.tags && <ListTags tags={item.tags} />}
       </div>
     </div>
   );

@@ -1,0 +1,18 @@
+.house {
+  &--gallery {
+    &--control {
+      &--footer {
+        box-sizing: border-box;
+        bottom: 20px;
+        display: inline-block;
+        right: 180px;
+        mix-blend-mode: difference;
+        position: absolute;
+
+        .btn-min {
+          margin: 0 2px;
+        }
+      }
+    }
+  }
+}

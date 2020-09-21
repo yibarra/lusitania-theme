@@ -16,6 +16,7 @@ const HouseGalleryControl: FunctionComponent<IHouseGalleryControl> = ({ active, 
       <button className="btn-arrow" data-next onClick={() => onPrevNext('next')} disabled={current >= (count - 1)}>
         <span className="icon"></span>
       </button>
+      
     </div>
   );
 };

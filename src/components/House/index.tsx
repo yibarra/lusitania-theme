@@ -22,10 +22,7 @@ const House: FunctionComponent<IHouse> = ({ item }) => {
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
 
-      if (item instanceof Object) {
-        console.log(item);
-        result.push(item);
-      }
+      if (item instanceof Object) result.push(item);
     }
 
     return result;

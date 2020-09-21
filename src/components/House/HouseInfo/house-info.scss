@@ -15,6 +15,48 @@
     top: 0;
     width: 550px;
 
+    &--attributes {
+      background-color: transparent;
+      box-sizing: border-box;
+      display: inline-block;
+      float: left;
+      margin: 20px 0 0;
+      padding: 40px 0;
+      position: relative;
+      vertical-align: top;
+
+      h6,
+      p {
+        color: $white-900;
+        position: relative;
+        z-index: 2;
+      }
+
+      .list--tags {
+        margin: 20px 0 0;
+
+        p {
+          text-transform: none;
+  
+          &:before {
+            background-color: $white-900;
+          }
+        }
+      }
+      
+      &:before {
+        background-color: $brown-900;
+        box-sizing: border-box;
+        content: '';
+        display: inline-block;
+        left: -40px;
+        height: calc(100% + 80px);
+        position: absolute;
+        top: 0;
+        width: calc(100% + 80px);
+      }
+    }
+
     &--title {
       .list--address {
         margin: 0;
@@ -46,7 +88,7 @@
     }
 
     &[data-active="true"] {
-      left: -600px;
+      left: -545px;
     }
   }
 }

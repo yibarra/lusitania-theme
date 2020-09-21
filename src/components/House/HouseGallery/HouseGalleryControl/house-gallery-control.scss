@@ -1,3 +1,5 @@
+@import '../../../../styles/components/animations';
+
 .house {
   &--gallery {
     &--control {
@@ -6,6 +8,7 @@
       right: 0;
       position: absolute;
       top: 50%;
+      transition: width 400ms $base-ease;
       transform: translate(0, -50%);
       width: calc(100vw - 550px);
       

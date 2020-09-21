@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b2bc9db71ed1763e74cfb3ce86522710",
+    "revision": "2278ced6781bafc3c06f6ed8d5e8f3c4",
     "url": "/lusitania-theme/index.html"
   },
   {
-    "revision": "6ddc94e2bd307f887d94",
+    "revision": "c7dcaa8eea9723d34e16",
     "url": "/lusitania-theme/static/css/main.bd25b512.chunk.css"
   },
   {
-    "revision": "0509f9d5a3aa74834015",
-    "url": "/lusitania-theme/static/js/2.515affcb.chunk.js"
+    "revision": "832078310d95d9dae5da",
+    "url": "/lusitania-theme/static/js/2.2d324298.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/lusitania-theme/static/js/2.515affcb.chunk.js.LICENSE.txt"
+    "url": "/lusitania-theme/static/js/2.2d324298.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6ddc94e2bd307f887d94",
-    "url": "/lusitania-theme/static/js/main.b85bb1a7.chunk.js"
+    "revision": "c7dcaa8eea9723d34e16",
+    "url": "/lusitania-theme/static/js/main.a10139de.chunk.js"
   },
   {
     "revision": "0eb8174f526f1ca41cab",

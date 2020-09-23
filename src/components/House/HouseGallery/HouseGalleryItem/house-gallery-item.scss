@@ -7,12 +7,14 @@
       position: absolute;
       width: 100%;
       will-change: transform;
+
       figure {
         box-sizing: border-box;
         display: none;
         height: 100%;
         left: 0;
         margin: 0;
+        pointer-events: none;
         position: absolute;
         top: 0;
         width: 100%;
@@ -28,6 +30,16 @@
         &:first-child {
           display: inline-block;
         }
+      }
+
+      > div {
+        box-sizing: border-box;
+        float: left;
+        height: 100%;
+        position: relative;
+        width: 100%;
+        vertical-align: top;
+        will-change: transform;
       }
     }
   }

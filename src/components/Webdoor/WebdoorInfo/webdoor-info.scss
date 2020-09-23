@@ -42,7 +42,7 @@
       .webdoor--info--content {
         .list--address,
         .list--attributes,
-        > h6 {
+        > h4 {
           animation: enter-info-up 400ms 0s $base-ease forwards;
         }
       }

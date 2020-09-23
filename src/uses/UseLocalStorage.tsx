@@ -16,7 +16,7 @@ function UseLocalStorage (key: string, initialValue: any) {
   });
 
   // check date
-  const checkHours = useCallback(date => differenceInMinutes(Date.now(), date), []);
+  const checkHours = useCallback((date: any) => differenceInMinutes(Date.now(), date), []);
 
   // set value
   const setValue = useCallback((key: string, value: any, setLocal: any) => {

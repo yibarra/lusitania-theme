@@ -5,7 +5,8 @@ import { CategoriesContext } from '../../providers/CategoriesProvider';
 import { PostContext } from '../../providers/PostProvider';
 
 import Home from '../../pages/Home';
-import HouseElement from '../../pages/HouseElement';
+import Gallery from '../../pages/Gallery';
+import HousePage from '../../pages/HousePage';
 
 import { IContent } from './interfaces';
 
@@ -22,15 +23,15 @@ const Content: FunctionComponent<IContent> = () => {
   return (
     <div className="content">
       <Switch>
-        <Route
-          exact
-          path={'/'}>
-            <Home getPostByCategoryName={getPostByCategoryName} categories={categories} />
-          </Route>
+        <Route exact path="/">
+          <Home getPostByCategoryName={getPostByCategoryName} categories={categories} />
+        </Route>
+
+        <Route path="/gallery"><Gallery /></Route>
 
         <Route
           path={'/house/:id'}>
-            <HouseElement getCustomPostById={getCustomPostById} />
+            <HousePage getCustomPostById={getCustomPostById} />
         </Route>
       </Switch>
     </div>

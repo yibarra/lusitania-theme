@@ -19,7 +19,7 @@ const HeaderNav = () => {
         <span className="icon icon-logo"></span>
       </NavLink>
       
-      
+      <NavLink to="/gallery" className="header--nav--item" activeClassName="active">galeria</NavLink>
     </nav>
   );
 };

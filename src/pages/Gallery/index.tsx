@@ -7,13 +7,13 @@ import { IGallery } from './interfaces';
 import './gallery.scss';
 
 // gallery
-const Gallery: FunctionComponent<IGallery> = () => {
+const Gallery: FunctionComponent<IGallery> = ({ categories }) => {
   const [ filter, setFilter ] = useState(false);
 
   // render
   return (
     <div className="gallery">
-      <Category />
+      <Category categories={categories} />
     </div>
   );
 };

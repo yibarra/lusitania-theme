@@ -17,7 +17,7 @@ const Content: FunctionComponent<IContent> = () => {
   const postContext: any = useContext(PostContext);
 
   const { getPostByCategoryName, getCustomPostById } = postContext;
-  const { categories } = categoriesContext;
+  const { categories }: any = categoriesContext;
 
   // render
   return (
@@ -27,7 +27,7 @@ const Content: FunctionComponent<IContent> = () => {
           <Home getPostByCategoryName={getPostByCategoryName} categories={categories} />
         </Route>
 
-        <Route path="/gallery"><Gallery /></Route>
+        <Route path="/gallery"><Gallery categories={categories} /></Route>
 
         <Route
           path={'/house/:id'}>

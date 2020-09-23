@@ -1,0 +1,21 @@
+.category {
+  &--list {
+    box-sizing: border-box;
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 60px 0 0;
+    width: 100%;
+    vertical-align: top;
+
+    &--item {
+      box-sizing: border-box;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      width: 100%;
+      vertical-align: top;
+    }
+  }
+}

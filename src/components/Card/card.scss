@@ -1,0 +1,30 @@
+@import '../../styles/settings/colors';
+
+.card {
+  box-sizing: border-box;
+  background-color: $white-600;
+  display: inline-block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  mix-blend-mode: normal;
+  pointer-events: auto;
+  width: 100%;
+  vertical-align: top;
+
+  &--info {
+    box-sizing: border-box;
+    background-color: $white-600;
+    display: inline-block;
+    float: left;
+    padding: 30px 40px 20px;
+    width: 100%;
+    vertical-align: top;
+
+    .btn-more {
+      float: right;
+      margin: 20px 0 0;
+      right: -20px;
+    }
+  }
+}

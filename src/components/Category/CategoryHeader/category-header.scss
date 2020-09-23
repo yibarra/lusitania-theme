@@ -1,5 +1,12 @@
 .category {
   &--header {
-    
+    box-sizing: border-box;
+    display: inline-block;
+    left: 20px;
+    padding: 20px 0;
+    position: absolute;
+    pointer-events: auto;
+    top: 60px;
+    z-index: 2;
   }
 }

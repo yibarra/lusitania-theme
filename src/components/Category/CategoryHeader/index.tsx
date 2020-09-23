@@ -5,10 +5,12 @@ import { ICategoryHeader } from './interfaces';
 import './category-header.scss';
 
 // category header
-const CategoryHeader: FunctionComponent<ICategoryHeader> = () => {
+const CategoryHeader: FunctionComponent<ICategoryHeader> = ({ setActive }) => {
   return (
     <div className="category--header">
-      
+      <button onClick={() => setActive(null)}>
+        back
+      </button>
     </div>
   );
 };

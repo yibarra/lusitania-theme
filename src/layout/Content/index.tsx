@@ -27,7 +27,9 @@ const Content: FunctionComponent<IContent> = () => {
           <Home getPostByCategoryName={getPostByCategoryName} categories={categories} />
         </Route>
 
-        <Route path="/gallery"><Gallery categories={categories} /></Route>
+        <Route path="/gallery">
+          <Gallery categories={categories} />
+        </Route>
 
         <Route
           path={'/house/:id'}>

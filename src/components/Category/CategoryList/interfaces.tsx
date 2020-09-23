@@ -1,3 +1,5 @@
 export interface ICategoryList {
-  categories: any[];
+  active: any;
+  items: any[];
+  setActive: (value: any) => any;
 }

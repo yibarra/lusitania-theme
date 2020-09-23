@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import MainProvider from '../../providers/MainProvider';
 
 import Content from '../Content';
-import Footer from '../Footer';
 import Header from '../Header';
 import Loader from '../../components/Loader';
 
@@ -14,10 +13,9 @@ const Main = () => {
     <MainProvider>
       <Loader />
       <Header />
-      <Content any="tre" />
-      <Footer />
+      <Content any="any" />
     </MainProvider>
   );
 };
 
-export default Main;
+export default memo(Main);

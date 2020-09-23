@@ -21,9 +21,15 @@ const PostProvider: FunctionComponent<IPostProvider> = ({ children }) => {
   // state
   const [ posts, setPosts ]: any = useState({ items: [], date: Date.now() });
 
+  // get query
+  const getQuery = useCallback((query: string) => {
+    return axios.get(query)
+      .then(({ data }) => data);
+  }, []);
+
   // get posts
   const getPosts = useCallback((setValue, setValueFunction, setPosts) => {
-    return axios.get(`/houses?per_page=100`)
+    return axios.get(`/${process.env.REACT_APP_KEY_ACF_POST}?per_page=100`)
       .then(({ data }) => data)
       .then(items =>
         setValue(localPostIndex, { items, date: Date.now() }, setValueFunction).then(() => setPosts(items)));
@@ -32,6 +38,11 @@ const PostProvider: FunctionComponent<IPostProvider> = ({ children }) => {
   // get post by id
   const getPostById = useCallback((id) => {
     return axios.get(`/${id}`).then(({ data }) => data);
+  }, []);
+
+  // get post category by id
+  const getPostByCategoryId = useCallback((typePost: string, id: number) => {
+    return axios.get(`/${typePost}?categories=${id}`).then(({ data }) => data);
   }, []);
 
   // get post by category
@@ -64,7 +75,9 @@ const PostProvider: FunctionComponent<IPostProvider> = ({ children }) => {
   return (
     <PostContext.Provider value={{
       posts: posts.items,
+      getQuery,
       getPostByCategoryName,
+      getPostByCategoryId,
       getPostById,
       getCustomPostById
     }}>

@@ -1,0 +1,10 @@
+.card {
+  &--gallery {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 150px;
+    position: relative;
+    width: 100%;
+    vertical-align: top;
+  }
+}

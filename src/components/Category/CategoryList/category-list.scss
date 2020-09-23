@@ -1,21 +1,50 @@
+@import '../../../styles/settings/colors';
+
+@import '../../../styles/components/animations';
+
 .category {
   &--list {
     box-sizing: border-box;
     display: inline-block;
     list-style: none;
     margin: 0;
-    padding: 60px 0 0;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 20px 0 0;
+    position: relative;
+    top: 40px;
+    transition: all 400ms $base-ease;
     width: 100%;
     vertical-align: top;
 
     &--item {
+      border: none;
+      border-bottom: 1px solid rgba($brown-900, 0.4);
       box-sizing: border-box;
       display: inline-block;
       margin: 0;
       padding: 0;
       position: relative;
+      text-align: center;
       width: 100%;
       vertical-align: top;
+    }
+
+    &[data-active="true"] {
+      .category {
+        &--list {
+          padding: 40px 0 0;
+
+          &--item {
+            display: none;
+
+            &[data-active="true"] {
+              display: inline-block;
+            }
+          }
+        }
+      }   
     }
   }
 }

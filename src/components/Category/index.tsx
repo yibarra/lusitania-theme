@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { FunctionComponent, memo, useState } from 'react';
 
 import CategoryHeader from './CategoryHeader';
 import CategoryList from './CategoryList';
@@ -9,10 +9,13 @@ import './category.scss';
 
 // category
 const Category: FunctionComponent<ICategory> = ({ categories: { items } }) => {
+  const [ active, setActive ]: any = useState(null);
+
   return (
     <div className="category">
-      <CategoryHeader />
-      <CategoryList categories={items} />
+      <CategoryHeader setActive={setActive} />
+
+      <CategoryList active={active} setActive={setActive} items={items} />
     </div>
   );
 };

@@ -2,8 +2,15 @@
   &--item {
     box-sizing: border-box;
     display: inline-block;
+    max-width: 980px;
     position: relative;
+    text-align: left;
     width: 100%;
     vertical-align: top;
+
+    h2 {
+      margin: 40px 0;
+      vertical-align: top;
+    }
   }
 }

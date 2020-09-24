@@ -21,6 +21,13 @@
     width: 100%;
     vertical-align: top;
 
+    h4 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      white-space: nowrap;
+    }
+
     .btn-more {
       float: right;
       margin: 20px 0 0;

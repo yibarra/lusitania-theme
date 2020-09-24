@@ -14,9 +14,9 @@
         box-sizing: border-box;
         display: inline-block;
         float: left;
-        padding: 10px;
+        padding: 1px;
         position: relative;
-        width: 50%;
+        width: calc(100% / 3);
         vertical-align: top;
       }
     }

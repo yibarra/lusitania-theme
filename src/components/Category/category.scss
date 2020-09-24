@@ -6,4 +6,16 @@
   position: relative;
   width: 100vw;
   vertical-align: top;
+
+  &--header {
+    display: none;
+  }
+
+  &[data-active="true"] {
+    .category {
+      &--header {
+        display: inline-block;
+      }
+    }
+  }
 }

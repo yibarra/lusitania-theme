@@ -21,15 +21,19 @@ const CategoryItem: FunctionComponent<ICategoryItem> = ({ active, category, inde
     load();
   }, [ category, getPostByCategoryId ]);
 
+  // render
   return (
     <div className="category--item" data-active={active}>
       <h2>{category.name}</h2>
 
       <CategoryItemList items={categoryItems} />
 
-      <button className="btn-more" onClick={() => setActive(index)}>
-        <span className="text">ver todos</span>
-      </button>   
+      <div className="category--item--footer">
+        <button className="btn-more" onClick={() => setActive(index)}>
+          <span className="text">ver todos</span>
+          <span className="material-icons">add</span>
+        </button>   
+      </div>
     </div>
   );
 };

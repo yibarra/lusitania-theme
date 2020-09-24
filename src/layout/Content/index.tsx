@@ -23,16 +23,21 @@ const Content: FunctionComponent<IContent> = () => {
   return (
     <div className="content">
       <Switch>
-        <Route exact path="/">
+        <Route
+          exact
+          path="/">
           <Home getPostByCategoryName={getPostByCategoryName} categories={categories} />
         </Route>
 
-        <Route path="/gallery">
+        <Route
+          exact
+          path="/gallery">
           <Gallery categories={categories} />
         </Route>
 
         <Route
-          path={'/house/:id'}>
+          exact
+          path={'/gallery/:id'}>
             <HousePage getCustomPostById={getCustomPostById} />
         </Route>
       </Switch>

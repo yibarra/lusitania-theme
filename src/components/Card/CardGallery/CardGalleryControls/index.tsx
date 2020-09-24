@@ -10,8 +10,13 @@ const CardGalleryControls: FunctionComponent<ICardGalleryControls> = ({ current,
   return (
     <div className="card--gallery--controls">
       <div className="card--gallery--controls--arrows">
-        <button onClick={() => onPrevNext('prev')}>prev</button>
-        <button onClick={() => onPrevNext('next')}>next</button>
+        <button className="btn-arrow min" data-prev onClick={() => onPrevNext('prev')}>
+          <span className="icon"></span>
+        </button>
+
+        <button className="btn-arrow min" data-next onClick={() => onPrevNext('next')}>
+          <span className="icon"></span>
+        </button>
       </div>
 
       <ul className="card--gallery--controls--buttons">

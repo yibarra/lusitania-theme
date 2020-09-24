@@ -12,7 +12,7 @@ const Category: FunctionComponent<ICategory> = ({ categories: { items } }) => {
   const [ active, setActive ]: any = useState(null);
 
   return (
-    <div className="category">
+    <div className="category" data-active={active !== null}>
       <CategoryHeader setActive={setActive} />
 
       <CategoryList active={active} setActive={setActive} items={items} />

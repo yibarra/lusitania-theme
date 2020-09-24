@@ -39,7 +39,7 @@ const Card: FunctionComponent<ICard> = ({ item }) => {
         <ListAddress item={item} />
         <ListAttributes item={item} />
 
-        <NavLink className="btn-more" to={`/house/${item.id}`}>
+        <NavLink className="btn-more" to={`/gallery/${item.id}`}>
           <span className="text">Ver casa</span>
           <span className="material-icons">add</span>
         </NavLink>

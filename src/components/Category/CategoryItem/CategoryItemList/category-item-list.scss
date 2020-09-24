@@ -3,11 +3,11 @@
     &--list {
       box-sizing: border-box;
       display: inline-block;
-      margin: 0 0 60px;
+      margin: 0 -10px;
       padding: 0;
       list-style: none;
       position: relative;
-      width: 100%;
+      width: calc(100% + 20px);
       vertical-align: top;
 
       &--item {

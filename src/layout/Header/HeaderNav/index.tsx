@@ -15,7 +15,7 @@ const HeaderNav = () => {
   // render
   return (
     <nav className="header--nav">
-      <NavLink to="/" className="header--nav--item logo" activeClassName="active">
+      <NavLink exact to="/" className="header--nav--item logo" activeClassName="active">
         <span className="icon icon-logo"></span>
       </NavLink>
       

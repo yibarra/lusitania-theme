@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/lusitania-theme/static/css/main.ca74aac7.chunk.css",
+    "main.css": "/lusitania-theme/static/css/main.2228584b.chunk.css",
     "main.js": "/lusitania-theme/static/js/main.a8f5d466.chunk.js",
     "main.js.map": "/lusitania-theme/static/js/main.a8f5d466.chunk.js.map",
     "runtime-main.js": "/lusitania-theme/static/js/runtime-main.3793aae2.js",
@@ -8,15 +8,15 @@
     "static/js/2.38c31023.chunk.js": "/lusitania-theme/static/js/2.38c31023.chunk.js",
     "static/js/2.38c31023.chunk.js.map": "/lusitania-theme/static/js/2.38c31023.chunk.js.map",
     "index.html": "/lusitania-theme/index.html",
-    "precache-manifest.98c639f489f58e6e13c24d9677716ef7.js": "/lusitania-theme/precache-manifest.98c639f489f58e6e13c24d9677716ef7.js",
+    "precache-manifest.63fa77529d8f24e0c9a619c32082b036.js": "/lusitania-theme/precache-manifest.63fa77529d8f24e0c9a619c32082b036.js",
     "service-worker.js": "/lusitania-theme/service-worker.js",
-    "static/css/main.ca74aac7.chunk.css.map": "/lusitania-theme/static/css/main.ca74aac7.chunk.css.map",
+    "static/css/main.2228584b.chunk.css.map": "/lusitania-theme/static/css/main.2228584b.chunk.css.map",
     "static/js/2.38c31023.chunk.js.LICENSE.txt": "/lusitania-theme/static/js/2.38c31023.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3793aae2.js",
     "static/js/2.38c31023.chunk.js",
-    "static/css/main.ca74aac7.chunk.css",
+    "static/css/main.2228584b.chunk.css",
     "static/js/main.a8f5d466.chunk.js"
   ]
 }

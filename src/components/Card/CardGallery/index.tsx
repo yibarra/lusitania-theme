@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FunctionComponent, useEffect, useRef } from 'react';
 
 import clamp from 'lodash-es/clamp';
 
@@ -14,6 +14,8 @@ import './card-gallery.scss';
 
 // card gallery
 const CardGallery: FunctionComponent<ICardGallery> = ({ current, items, setCurrent, onPrevNext }) => {
+  const element: any = useRef(null);
+
   // state
   const [ props, set ] = useSprings(items.length, (i: any) => ({
     x: i * window.innerWidth,
@@ -22,7 +24,9 @@ const CardGallery: FunctionComponent<ICardGallery> = ({ current, items, setCurre
 
   // drag
   const drag = useDrag(({ down, movement: [mx], direction: [xDir], distance, cancel }: any) => {
-    if (down && distance > window.innerWidth / 2) {
+    const { width }: any = element.current.getBoundingClientRect();
+
+    if (down && distance > width / 2) {
       const value = clamp(current + (xDir > 0 ? -1 : 1), 0, items.length - 1);
       cancel(setCurrent(value));
     }
@@ -30,7 +34,7 @@ const CardGallery: FunctionComponent<ICardGallery> = ({ current, items, setCurre
     set((i: any) => {
       if (i < current - 1 || i > current + 1) return { display: 'none' };
 
-      const x: number = (i - current) * window.innerWidth + (down ? mx : 0);
+      const x: number = (i - current) * width + (down ? mx : 0);
       return { x, display: 'block' };
     });
   });
@@ -38,12 +42,14 @@ const CardGallery: FunctionComponent<ICardGallery> = ({ current, items, setCurre
   // use effect
   useEffect(() => {
     const init = () => {
+      const { width }: any = element.current.getBoundingClientRect();
+
       set((i) => {
         if (i < current - 1 || i > current + 1) {
           return { display: 'none' };
         }
   
-        const x: any = (i - current) * window.innerWidth;
+        const x: any = (i - current) * width;
         return { x, display: 'block' };
       });
     };
@@ -53,7 +59,7 @@ const CardGallery: FunctionComponent<ICardGallery> = ({ current, items, setCurre
 
   // render
   return (
-    <div className="card--gallery">
+    <div className="card--gallery" ref={element}>
       <CardGalleryControls
         current={current}
         items={items}

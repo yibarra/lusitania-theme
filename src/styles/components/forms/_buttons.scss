@@ -155,4 +155,11 @@
     text-transform: uppercase;
     vertical-align: baseline;
   }
+
+  &.back {
+    .material-icons {
+      left: 0;
+      right: initial;
+    }
+  }
 }

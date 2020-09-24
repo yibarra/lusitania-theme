@@ -8,8 +8,8 @@ import './category-header.scss';
 const CategoryHeader: FunctionComponent<ICategoryHeader> = ({ setActive }) => {
   return (
     <div className="category--header">
-      <button className="btn-more" onClick={() => setActive(null)}>
-        <span className="material-icons">undo</span>
+      <button className="btn-more back" onClick={() => setActive(null)}>
+        <span className="material-icons">keyboard_backspace</span>
         <span className="text">Voltar</span>
       </button>
     </div>

@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/lusitania-theme/static/css/main.cd4943ef.chunk.css",
-    "main.js": "/lusitania-theme/static/js/main.84a42743.chunk.js",
-    "main.js.map": "/lusitania-theme/static/js/main.84a42743.chunk.js.map",
+    "main.css": "/lusitania-theme/static/css/main.ff642e59.chunk.css",
+    "main.js": "/lusitania-theme/static/js/main.36cd4b47.chunk.js",
+    "main.js.map": "/lusitania-theme/static/js/main.36cd4b47.chunk.js.map",
     "runtime-main.js": "/lusitania-theme/static/js/runtime-main.3793aae2.js",
     "runtime-main.js.map": "/lusitania-theme/static/js/runtime-main.3793aae2.js.map",
     "static/js/2.38c31023.chunk.js": "/lusitania-theme/static/js/2.38c31023.chunk.js",
     "static/js/2.38c31023.chunk.js.map": "/lusitania-theme/static/js/2.38c31023.chunk.js.map",
     "index.html": "/lusitania-theme/index.html",
-    "precache-manifest.367800d0f818a2e81b621089601ae62d.js": "/lusitania-theme/precache-manifest.367800d0f818a2e81b621089601ae62d.js",
+    "precache-manifest.343546cd42ecde11fcbe35dc14ce30ba.js": "/lusitania-theme/precache-manifest.343546cd42ecde11fcbe35dc14ce30ba.js",
     "service-worker.js": "/lusitania-theme/service-worker.js",
-    "static/css/main.cd4943ef.chunk.css.map": "/lusitania-theme/static/css/main.cd4943ef.chunk.css.map",
+    "static/css/main.ff642e59.chunk.css.map": "/lusitania-theme/static/css/main.ff642e59.chunk.css.map",
     "static/js/2.38c31023.chunk.js.LICENSE.txt": "/lusitania-theme/static/js/2.38c31023.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3793aae2.js",
     "static/js/2.38c31023.chunk.js",
-    "static/css/main.cd4943ef.chunk.css",
-    "static/js/main.84a42743.chunk.js"
+    "static/css/main.ff642e59.chunk.css",
+    "static/js/main.36cd4b47.chunk.js"
   ]
 }

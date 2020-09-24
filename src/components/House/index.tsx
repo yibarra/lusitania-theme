@@ -1,5 +1,7 @@
-import React, { FunctionComponent, useCallback, memo, useState } from 'react';
+import React, { FunctionComponent, memo, useState } from 'react';
 import parse from 'html-react-parser';
+
+import UseFilterImage from '../../uses/UseFilterImage';
 
 import HouseInfo from './HouseInfo';
 import HouseGallery from './HouseGallery';
@@ -12,21 +14,8 @@ import './house.scss';
 const House: FunctionComponent<IHouse> = ({ item }) => {
   // state
   const [ active, setActive ]: any = useState(false);
-
-  // filter images
-  const filterImages = useCallback((items: any[]) => {
-    if (!Array.isArray(items)) return [];
-
-    const result: any [] = [];
-
-    for (let i = 0; i < items.length; i++) {
-      const item = items[i];
-
-      if (item instanceof Object) result.push(item);
-    }
-
-    return result;
-  }, []);
+  // uses
+  const { filterImages } = UseFilterImage();
 
   // images
   const images: any = parse(item.content.rendered, {

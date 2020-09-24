@@ -28,7 +28,8 @@
     "react-scroll-parallax": "^2.3.4",
     "react-spring": "^9.0.0-rc.3",
     "react-use-gesture": "^7.0.16",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "use-deep-compare-effect": "^1.4.0"
   },
   "scripts": {
     "predeploy": "npm run build",

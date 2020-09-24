@@ -1,0 +1,44 @@
+.card {
+  &--gallery {
+    &--controls {
+      box-sizing: border-box;
+      display: inline-block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 2;
+
+      &--arrows,
+      &--buttons {
+        box-sizing: border-box;
+        display: inline-block;
+        left: 0;
+        position: absolute;
+      }
+      
+      &--arrows {
+        top: 50%;
+        transform: translate(0, -50%);
+        width: 100%;
+      }
+
+      &--buttons {
+        bottom: 20px;
+        left: 50%;
+        padding: 0;
+        transform: translate(-50%, 0);
+        text-align: center;
+        width: auto;
+
+        &--item {
+          box-sizing: border-box;
+          display: inline-block;
+          float: left;
+          margin: 0 5px;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+}

@@ -32,7 +32,7 @@ const House: FunctionComponent<IHouse> = ({ item }) => {
     <div className="house" data-active={active}>
       {item.content &&
         <>
-          <HouseGallery active={active} item={item} items={filterImages(images)} />
+          <HouseGallery current={0} active={active} item={item} items={filterImages(images)} />
           <HouseInfo active={active} item={item} setActive={setActive} />
         </>}
     </div>

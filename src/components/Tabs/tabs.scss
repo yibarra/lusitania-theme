@@ -1,0 +1,14 @@
+@import '../../styles/settings/colors';
+@import '../../styles/settings/fonts';
+
+@import '../../styles/tools/mixins';
+
+.tabs {
+  background-color: rgba($brown-900, 0.7);
+  box-sizing: border-box;
+  display: inline-block;
+  mix-blend-mode: difference;
+  position: relative;
+  width: 100%;
+  vertical-align: top;
+}

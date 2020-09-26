@@ -31,7 +31,7 @@ const Card: FunctionComponent<ICard> = ({ item }) => {
   // render
   return (
     <div className="card">
-      <CardGallery items={filterImages(images)} />
+      <CardGallery current={0} items={filterImages(images)} />
 
       <div className="card--info">
         <h4 dangerouslySetInnerHTML={{ __html: title.rendered }} />

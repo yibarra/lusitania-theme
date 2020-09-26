@@ -19,10 +19,11 @@ export default function SliderBase(Component: any) {
 
     // component did mount
     componentDidMount() {
-      const { items }: any = this.props;
+      const { items, current }: any = this.props;
 
       this.setState({
-        items
+        items,
+        current
       });
     }
 

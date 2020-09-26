@@ -5,10 +5,9 @@ import './header-nav.scss';
 
 /*
 <NavLink to="/about" className="header--nav--item" activeClassName="active">quem somos</NavLink>
-      <NavLink to="/gallery" className="header--nav--item" activeClassName="active">galeria</NavLink>
-      <NavLink to="/map" className="header--nav--item" activeClassName="active">mapa</NavLink>
-      <NavLink to="/contact" className="header--nav--item" activeClassName="active">contato</NavLink>
-      */
+<NavLink to="/gallery" className="header--nav--item" activeClassName="active">galeria</NavLink>
+<NavLink to="/map" className="header--nav--item" activeClassName="active">mapa</NavLink>
+*/
 
 // header nav
 const HeaderNav = () => {
@@ -20,6 +19,7 @@ const HeaderNav = () => {
       </NavLink>
       
       <NavLink to="/gallery" className="header--nav--item" activeClassName="active">galeria</NavLink>
+      <NavLink to="/contact" className="header--nav--item" activeClassName="active">contato</NavLink>
     </nav>
   );
 };

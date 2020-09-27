@@ -58,6 +58,10 @@
           }
         }
       }
+
+      &:first-child {
+        margin: 142px 0 0;
+      }
     }
 
     &[data-active="true"] {

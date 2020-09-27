@@ -3,6 +3,8 @@ import React, { FunctionComponent, memo, useState } from 'react';
 import Category from '../../components/Category';
 import Filters from '../../components/Filters';
 
+import { FiltersProvider } from '../../providers/FiltersProvider';
+
 import { IGallery } from './interfaces';
 
 import './gallery.scss';
@@ -16,7 +18,9 @@ const Gallery: FunctionComponent<IGallery> = ({ categories }) => {
     <div className="gallery">
       <Category categories={categories} />
       
-      <Filters />
+      <FiltersProvider>
+        <Filters />
+      </FiltersProvider>
     </div>
   );
 };

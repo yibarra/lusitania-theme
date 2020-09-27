@@ -1,0 +1,54 @@
+@import '../../../styles/settings/colors';
+
+.filters {
+  &--body {
+    background-color: rgba($white-600, 0.98);
+    box-sizing: border-box;
+    display: inline-block;
+    float: left;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    vertical-align: top;
+
+    &--item,
+    &--list {
+      box-sizing: border-box;
+      display: inline-block;
+      position: relative;
+      vertical-align: top;
+    }
+
+    &--item {
+      display: none;
+      float: none;
+      max-width: 1000px;
+      padding: 40px 0;
+      text-align: left;
+      width: 100%;
+
+      &--slider,
+      &--select,
+      &--tags {
+        box-sizing: border-box;
+        display: inline-block;
+        float: left;
+        position: relative;
+        width: calc(100% / 5);
+        vertical-align: top;
+      }
+
+      &[data-active="true"] {
+        display: inline-block;
+        pointer-events: auto;
+      }
+    }
+
+    &--list {
+      float: left;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+  }
+}

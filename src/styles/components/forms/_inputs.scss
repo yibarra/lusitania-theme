@@ -18,3 +18,14 @@
   @include font($font-default, 12px, 400, var(--text-color));
   padding: 10px 20px;
 }
+
+.input-label {
+  @include font($font-default, 12px, 300, $brown-900);
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 0 10px;
+  letter-spacing: 0.01em;
+  position: relative;
+  width: 100%;
+  vertical-align: top;
+}

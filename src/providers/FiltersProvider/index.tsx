@@ -1,4 +1,5 @@
 import React, { createContext, FunctionComponent, useState, useCallback } from 'react';
+import axios from 'axios';
 
 import { IFiltersContext, IFiltersProvider } from './interfaces';
 
@@ -54,11 +55,26 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
     setFilters({ cities, council, districts, neigh, types, zone });
   }, [ checkItemArray, setFilters ]);
 
+  // get filters query
+  const getFiltersQuery = useCallback((values: any []) => {
+    let queries: string = '';
+
+    for (let value of values) {
+      queries += `${value}&`;
+    }
+
+    //"https://www.julianibarra.com/lusitania/wp-json/wp/v2/"
+    //"/houses?filter[meta_key]=cidade&filter[meta_value]=Portofilter[meta_key]=area&filter[meta_value]=10.00,100.00"
+
+    axios.get(`houses?${queries}`).then((data) => console.log(data));
+  }, []);
+
   // render
   return (
     <FiltersContext.Provider value={{
       filters,
-      getFilters
+      getFilters,
+      getFiltersQuery
     }}>
       {children}
     </FiltersContext.Provider>

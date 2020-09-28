@@ -9,7 +9,7 @@ import { IFiltersTabs } from './interfaces';
 import './filters-tabs.scss';
 
 // filters body
-const FiltersTabs: FunctionComponent<IFiltersTabs> = ({ current, items, setCurrent }) => {
+const FiltersTabs: FunctionComponent<IFiltersTabs> = ({ current, items, setCurrent, onChange }) => {
   // render
   return (
     <div className="filters--tabs">
@@ -20,7 +20,8 @@ const FiltersTabs: FunctionComponent<IFiltersTabs> = ({ current, items, setCurre
 
       <FiltersBody
         current={current}
-        items={items} />
+        items={items}
+        onChange={onChange} />
     </div>
   );
 };

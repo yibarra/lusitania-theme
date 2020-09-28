@@ -171,6 +171,28 @@
   @include font($font-default, 12px, 400, $brown-900);
   line-height: 1em;
   letter-spacing: 0.01em;
-  padding: 20px 40px 20px 20px;
+  padding: 20px 40px;
   text-transform: uppercase;
+
+  &:before {
+    box-sizing: border-box;
+    background-color: $brown-900;
+    content: '';
+    display: inline-block;
+    height: 0;
+    left: 15px;
+    right: initial;
+    position: absolute;
+    transition: all 400ms $base-ease;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 0;
+  }
+
+  &[data-active="true"] {
+    &:before {
+      height: 5px;
+      width: 5px;
+    }
+  }
 }

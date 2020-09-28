@@ -6,15 +6,13 @@ import { ISelect } from './interfaces';
 import './select.scss';
 
 // select
-const Select: FunctionComponent<ISelect> = ({ options, label, placeholder }) => {
+const Select: FunctionComponent<ISelect> = ({ options, label, placeholder, onChange }) => {
   // filter select
   const filterSelect = useCallback((items: any[]) => {
-    const elements: any[] = [];
+    if (!Array.isArray(items)) return [];
 
-    for (let i in items) {
-      const item = items[i];
-      elements.push({ name: item, value: item });
-    }
+    const elements: any[] = [{ name: 'Selecionar opção', value: '', disabled: true }];
+    items.map((item: any) => elements.push({ name: item, value: item }));
 
     return elements;
   }, []);
@@ -23,7 +21,11 @@ const Select: FunctionComponent<ISelect> = ({ options, label, placeholder }) => 
   return (
     <>
       <label className="input-label">{label}</label>
-      <SelectSearch options={filterSelect(options)} search placeholder={placeholder} />
+      <SelectSearch
+        search
+        onChange={(value) => onChange(value)}
+        options={filterSelect(options)}
+        placeholder={placeholder} />
     </>
   )
 };

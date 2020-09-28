@@ -6,16 +6,16 @@ import { ISlider } from './interfaces';
 import './slider.scss';
 
 // slider
-const Slider: FunctionComponent<ISlider> = ({ label, min, connect, max, init, end, onChange }) => {
+const Slider: FunctionComponent<ISlider> = ({ label, connect, init, range, onChange }) => {
   // render
   return (
     <>
       <label className="input-label">{label}</label>
       <Nouislider
-        range={{min, max}}
+        range={range}
         connect={connect}
-        start={[init, end]}
-        onUpdate={onChange}
+        start={init}
+        onUpdate={(value: any) => onChange('')}
         tooltips />
     </>
   )

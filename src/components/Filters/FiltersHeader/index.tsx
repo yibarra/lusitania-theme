@@ -10,9 +10,12 @@ const FiltersHeader: FunctionComponent<IFiltersHeader> = ({ current, setCurrent,
   return (
     <div className="filters--header">
       <ul className="filters--header--list">
-        {items && items.map((item: any, index: number) =>
+        {items && items.map(({ title, active }: any, index: number) =>
           <li className="filters--header--item" data-active={current === index} key={index}>
-            <button className="btn-tab" onClick={() => setCurrent(current !== index ? index : null)}>{item.title}</button>
+            <button
+              className="btn-tab"
+              data-active={active}
+              onClick={() => setCurrent(current !== index ? index : null)}>{title}</button>
           </li>)}
       </ul>
     </div>

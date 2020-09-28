@@ -1,6 +1,6 @@
 export interface IFiltersTabs {
   items: any[];
   current: number;
-  onPrevNext: (value: any) => any;
+  onChange: (value: any, id: any, items: any) => any;
   setCurrent: (value: number) => void;
 }

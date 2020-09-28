@@ -174,25 +174,40 @@
   padding: 20px 40px;
   text-transform: uppercase;
 
+  &:after,
   &:before {
     box-sizing: border-box;
-    background-color: $brown-900;
     content: '';
     display: inline-block;
+    position: absolute;
+  }
+
+  &:after {
+    background-color: $brown-900;
+    bottom: 0;
     height: 0;
+    left: 0;
+    transition: all 200ms $base-ease;
+    width: 100%;
+  }
+
+  &:before {
+    background-color: transparent;
+    border: 1px solid $brown-900;
+    display: inline-block;
+    height: 5px;
     left: 15px;
     right: initial;
     position: absolute;
     transition: all 400ms $base-ease;
     top: 50%;
     transform: translate(0, -50%);
-    width: 0;
+    width: 5px;
   }
 
   &[data-active="true"] {
     &:before {
-      height: 5px;
-      width: 5px;
+      background-color: $brown-900;
     }
   }
 }

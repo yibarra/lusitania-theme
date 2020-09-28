@@ -21,7 +21,7 @@ const Content: FunctionComponent<IContent> = () => {
 
   // render
   return (
-    <div className="content">
+    <>
       <Switch>
         <Route
           exact
@@ -41,7 +41,7 @@ const Content: FunctionComponent<IContent> = () => {
             <HousePage getCustomPostById={getCustomPostById} />
         </Route>
       </Switch>
-    </div>
+    </>
   );
 };
 

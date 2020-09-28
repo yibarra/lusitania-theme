@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useCallback, useContext, useEffect } from 'react';
+import React, { FunctionComponent, memo, useCallback, useContext, useEffect, useState } from 'react';
 
 import FiltersContent from './FiltersContent';
 
@@ -33,7 +33,7 @@ const Filters: FunctionComponent<IFilters> = () => {
 
     getFiltersQuery(metas);
   }, [ getFiltersQuery ]);
-
+  
   // get items
   const requestItems = useCallback((items: any []) => {
     const inputs: any [] = items.filter((item :any) => item.active === true);
@@ -61,7 +61,10 @@ const Filters: FunctionComponent<IFilters> = () => {
   return (
     <div className="filters">
       {filters &&
-        <FiltersContent filters={filters} tags={tags} requestItems={requestItems} />}
+        <FiltersContent
+          filters={filters}
+          tags={tags}
+          requestItems={requestItems} />}
     </div>
   )
 };

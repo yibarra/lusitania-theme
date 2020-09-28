@@ -2,14 +2,18 @@
 
 .filters {
   &--body {
-    background-color: rgba($white-600, 0.98);
+    background-color: transparent;
     box-sizing: border-box;
     display: inline-block;
     float: left;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
     position: relative;
     text-align: center;
     width: 100%;
     vertical-align: top;
+    z-index: 1;
 
     &--item,
     &--list {
@@ -24,6 +28,7 @@
       float: none;
       max-width: 1000px;
       padding: 40px 0;
+      pointer-events: auto;
       text-align: left;
       width: 100%;
 
@@ -46,10 +51,18 @@
     }
 
     &--list {
-      float: left;
+      background-color: rgba($white-600, 0.98);
+      left: 0;
       margin: 0;
       padding: 0;
+      position: fixed;
+      top: 132px;
       width: 100%;
+      z-index: 3;
+
+      &:empty {
+        display: none;
+      }
     }
   }
 }

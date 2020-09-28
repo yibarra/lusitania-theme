@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useState } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 
 import Category from '../../components/Category';
 import Filters from '../../components/Filters';
@@ -11,12 +11,11 @@ import './gallery.scss';
 
 // gallery
 const Gallery: FunctionComponent<IGallery> = ({ categories }) => {
-  const [ filter, setFilter ] = useState(false);
-
   // render
   return (
     <div className="gallery">
-      <Category categories={categories} />
+      <Category
+        categories={categories} />
       
       <FiltersProvider>
         <Filters />

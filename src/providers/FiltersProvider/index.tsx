@@ -10,6 +10,7 @@ const FiltersContext = createContext({} as IFiltersContext);
 const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
   // state
   const [ filters, setFilters ]: any = useState({});
+  const [ result, setResult ]: any = useState([]);
 
   // check item array
   const checkItemArray = useCallback((items: any [], item: any) => 
@@ -63,15 +64,13 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
       queries += `${value}&`;
     }
 
-    //"https://www.julianibarra.com/lusitania/wp-json/wp/v2/"
-    //"/houses?filter[meta_key]=cidade&filter[meta_value]=Portofilter[meta_key]=area&filter[meta_value]=10.00,100.00"
-
-    axios.get(`houses?${queries}`).then((data) => console.log(data));
-  }, []);
+    axios.get(`houses?${queries}`).then(({ data }: any) => setResult(data));
+  }, [ setResult ]);
 
   // render
   return (
     <FiltersContext.Provider value={{
+      result,
       filters,
       getFilters,
       getFiltersQuery

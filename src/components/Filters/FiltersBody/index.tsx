@@ -63,7 +63,7 @@ const FiltersBody: FunctionComponent<IFiltersBody> = ({ current, items, onChange
           </li>)}
       </ul>
 
-      <FiltersResult items={items} />
+      <FiltersResult />
     </div>
   )
 };

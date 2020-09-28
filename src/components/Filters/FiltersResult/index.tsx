@@ -1,16 +1,29 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { FunctionComponent, useContext, memo } from 'react';
+
+import Card from '../../Card';
+
+import { FiltersContext } from '../../../providers/FiltersProvider';
 
 import { IFiltersResult } from './interfaces';
 
-// filters results
-const FiltersResult: FunctionComponent<IFiltersResult> = ({ items }) => {
+import './filters-result.scss';
 
+// filters results
+const FiltersResult: FunctionComponent<IFiltersResult> = () => {
+  const filterContext = useContext(FiltersContext);
+  const { result } = filterContext;
 
   // render
   return (
     <div
-      className="">
-      
+      className="filters--result"
+      data-active={result.length > 0}>
+        <ul className="filters--result--list">
+          {result && result.map((item: any, index: number) =>
+            <li className="filters--result--item" key={index}>
+              <Card item={item} />
+            </li>)}
+        </ul>
     </div>
   );
 };

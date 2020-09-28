@@ -7,11 +7,13 @@
     box-sizing: border-box;
     background-color: rgba($white-600, 0.98);
     display: inline-block;
-    float: left;
-    position: relative;
+    left: 0;
+    position: fixed;
+    top: 60px;
     text-align: center;
     width: 100%;
     vertical-align: top;
+    z-index: 2;
 
     &--item,
     &--list {
@@ -27,23 +29,6 @@
 
       .btn-tab {
         cursor: pointer;
-
-        &:after,
-        &:before {
-          box-sizing: border-box;
-          content: '';
-          display: inline-block;
-          position: absolute;
-        }
-
-        &:after {
-          background-color: $brown-900;
-          bottom: 0;
-          height: 0;
-          left: 0;
-          transition: all 200ms $base-ease;
-          width: 100%;
-        }
       }
 
       &[data-active="true"] {

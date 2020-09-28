@@ -11,6 +11,7 @@ import './category.scss';
 const Category: FunctionComponent<ICategory> = ({ categories: { items } }) => {
   const [ active, setActive ]: any = useState(null);
 
+  // render
   return (
     <div className="category" data-active={active !== null}>
       <CategoryHeader setActive={setActive} />

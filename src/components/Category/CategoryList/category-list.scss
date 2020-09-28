@@ -8,9 +8,7 @@
     display: inline-block;
     list-style: none;
     margin: 0;
-    height: calc(100vh - 40px);
-    overflow: hidden;
-    overflow-y: auto;
+    height: auto;
     padding: 0;
     position: relative;
     top: 0;
@@ -60,7 +58,8 @@
       }
 
       &:first-child {
-        margin: 142px 0 0;
+        margin: 132px 0 0;
+        transition: all 400ms $base-ease;
       }
     }
 

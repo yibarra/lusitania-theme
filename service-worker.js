@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/lusitania-theme/precache-manifest.e0f24883a1f3633f628203d6020b88cb.js"
+  "/lusitania-theme/precache-manifest.7bb1eb325fd135abd6936e0b63ec27ba.js"
 );
 
 self.addEventListener('message', (event) => {

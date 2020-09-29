@@ -58,6 +58,10 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
 
   // get filters query
   const getFiltersQuery = useCallback((values: any []) => {
+    if (!values.length) {
+      return setResult([]);
+    }
+
     let queries: string = '';
 
     for (let value of values) {

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useCallback, useContext, useEffect, useState } from 'react';
+import React, { FunctionComponent, memo, useCallback, useContext, useEffect } from 'react';
 
 import FiltersContent from './FiltersContent';
 
@@ -17,20 +17,18 @@ const Filters: FunctionComponent<IFilters> = () => {
   const tagsContext: any = useContext(TagsContext);
 
   const { posts }: any = postsContext;
-  const { filters, getFilters, getFiltersQuery }: any = filtersContext;
+  const { result, filters, getFilters, getFiltersQuery }: any = filtersContext;
   const { tags }: any = tagsContext;
 
   // create query
   const createQuery = useCallback((values: any []) => {
-    if (!Array.isArray(values) || !values.length) return false;
-
     const metas: any [] = [];
 
     for (let value of values) {
       if (value instanceof Object)
         metas.push(`filter[meta_key]=${value.id}&filter[meta_value]=${value.value}`);
     }
-
+    
     getFiltersQuery(metas);
   }, [ getFiltersQuery ]);
   
@@ -59,7 +57,7 @@ const Filters: FunctionComponent<IFilters> = () => {
 
   // render
   return (
-    <div className="filters">
+    <div className="filters" data-active={result.length > 0}>
       {filters &&
         <FiltersContent
           filters={filters}

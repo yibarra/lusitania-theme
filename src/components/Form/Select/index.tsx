@@ -6,7 +6,7 @@ import { ISelect } from './interfaces';
 import './select.scss';
 
 // select
-const Select: FunctionComponent<ISelect> = ({ options, label, placeholder, onChange }) => {
+const Select: FunctionComponent<ISelect> = ({ options, label, value, placeholder, onChange }) => {
   // filter select
   const filterSelect = useCallback((items: any[]) => {
     if (!Array.isArray(items)) return [];
@@ -23,6 +23,7 @@ const Select: FunctionComponent<ISelect> = ({ options, label, placeholder, onCha
       <label className="input-label">{label}</label>
       <SelectSearch
         search
+        value={value}
         onChange={(value) => onChange(value)}
         options={filterSelect(options)}
         placeholder={placeholder} />

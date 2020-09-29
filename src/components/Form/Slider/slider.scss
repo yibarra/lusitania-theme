@@ -1,0 +1,56 @@
+@import '../../../styles/settings/colors';
+@import '../../../styles/settings/fonts';
+
+@import '../../../styles/tools/mixins';
+
+.noUi-target {
+  border-radius: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.noUi-horizontal {
+  background-color: $white-600;
+  border: 1px solid $brown-900;
+  box-shadow: none;
+  height: 4px;
+
+  .noUi-handle {
+    border-radius: 0;
+    background-color: $white-600;
+    border: 4px solid $brown-900;
+    height: 14px;
+    left: -7px;
+    width: 14px;
+
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+
+  .noUi-tooltip {
+    @include font($font-default, 10px, 400, $white-600);
+    background-color: $brown-900;
+    border: none;
+    bottom: 15px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
+.noUi-connect {
+  background-color: $brown-900;
+  border: 1px solid $brown-900;
+  height: 2px;
+}
+
+.slider {
+  box-sizing: border-box;
+  display: inline-block;
+  float: left;
+  padding: 25px 15px 0;
+  position: relative;
+  width: 100%;
+  vertical-align: top;
+}

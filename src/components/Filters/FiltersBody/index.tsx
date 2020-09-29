@@ -14,12 +14,13 @@ const FiltersBody: FunctionComponent<IFiltersBody> = ({ current, items, onChange
   const typeElement = useCallback((element: any, index: number) => {
     if (element instanceof Object === false || !items.length) return false;
 
-    const { type, label, id } = element;
+    const { type, label, id, value } = element;
 
     switch (type) {
       case 'select':
         return <div className="filters--body--item--select" key={index}>
           <Select
+            value={value}
             label={label}
             options={element.items}
             onChange={(e) => onChange(e, id, items)} />
@@ -28,7 +29,7 @@ const FiltersBody: FunctionComponent<IFiltersBody> = ({ current, items, onChange
         return <div className="filters--body--item--slider" key={index}>
           <Slider label={label}
             range={{ min: 0, max: 100 }}
-            connect={false}
+            connect={true}
             init={[0, 100]}
             onChange={(e) => onChange(e, id, items)} />
         </div>;

@@ -14,12 +14,12 @@ const Gallery: FunctionComponent<IGallery> = ({ categories }) => {
   // render
   return (
     <div className="gallery">
-      <Category
-        categories={categories} />
-      
       <FiltersProvider>
         <Filters />
       </FiltersProvider>
+
+      <Category
+        categories={categories} />
     </div>
   );
 };

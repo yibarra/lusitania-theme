@@ -3,6 +3,8 @@ import Nouislider from 'react-nouislider';
 
 import { ISlider } from './interfaces';
 
+import "nouislider/distribute/nouislider.css";
+
 import './slider.scss';
 
 // slider
@@ -11,12 +13,15 @@ const Slider: FunctionComponent<ISlider> = ({ label, connect, init, range, onCha
   return (
     <>
       <label className="input-label">{label}</label>
-      <Nouislider
-        range={range}
-        connect={connect}
-        start={init}
-        onUpdate={(value: any) => onChange('')}
-        tooltips />
+
+      <div className="slider">
+        <Nouislider
+          range={range}
+          connect={connect}
+          start={init}
+          onUpdate={(value: any) => onChange('')}
+          tooltips />
+      </div>
     </>
   )
 };

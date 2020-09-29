@@ -1,13 +1,36 @@
 .filters {
   box-sizing: border-box;
   display: inline-block;
-  left: 0;
+  float: left;
   height: auto;
   padding: 60px 0 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
+  pointer-events: auto;
   width: 100%;
   vertical-align: top;
   z-index: 2;
+
+  &--title {
+    box-sizing: border-box;
+    display: inline-block;
+    left: 50%;
+    max-width: 980px;
+    position: absolute;
+    top: 70px;
+    transform: translate(-50%, 0);
+    width: 100%;
+    z-index: 5;
+
+    .btn-more {
+      box-sizing: border-box;
+      pointer-events: auto;
+      position: relative;
+      z-index: 13;
+    }
+  }
+
+  &[data-active="true"] {
+    & + .category {
+      display: none;
+    }
+  }
 }

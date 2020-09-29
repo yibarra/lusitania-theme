@@ -9,13 +9,14 @@ import { IFiltersTabs } from './interfaces';
 import './filters-tabs.scss';
 
 // filters body
-const FiltersTabs: FunctionComponent<IFiltersTabs> = ({ current, items, setCurrent, onChange }) => {
+const FiltersTabs: FunctionComponent<IFiltersTabs> = ({ current, items, setCurrent, onChange, onClearInputs }) => {
   // render
   return (
     <div className="filters--tabs">
       <FiltersHeader
         current={current}
         items={items}
+        onClearInputs={onClearInputs}
         setCurrent={setCurrent} />
 
       <FiltersBody

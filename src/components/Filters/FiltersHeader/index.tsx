@@ -5,7 +5,7 @@ import { IFiltersHeader } from './interfaces';
 import './filters-header.scss';
 
 // filters header
-const FiltersHeader: FunctionComponent<IFiltersHeader> = ({ current, setCurrent, items }) => {
+const FiltersHeader: FunctionComponent<IFiltersHeader> = ({ current, setCurrent, items, onClearInputs }) => {
   // render
   return (
     <div className="filters--header">
@@ -18,6 +18,13 @@ const FiltersHeader: FunctionComponent<IFiltersHeader> = ({ current, setCurrent,
               onClick={() => setCurrent(current !== index ? index : null)}>{title}</button>
           </li>)}
       </ul>
+
+      <div className="filters--header--clear">
+        <button className="btn-more" onClick={() => onClearInputs(items)}>
+          <span className="material-icons">clear</span>
+          <span className="text">Limpar Filtros</span>
+        </button>
+      </div>
     </div>
   );
 };

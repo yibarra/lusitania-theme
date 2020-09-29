@@ -9,20 +9,23 @@ const FiltersContent: FunctionComponent<IFiltersContent> = ({ filters, tags, req
   const [ inputs, setInputs ]: any = useState([]);
 
   // clear
-  const onClear = useCallback((inputs: any) => {
+  const onClearInputs = useCallback((inputs: any) => {
     if (!Array.isArray(inputs) || !inputs.length) return false;
-
+    
     const values: any = inputs;
-
+    
     for (let i = 0; i < inputs.length; i++) {
       const { items } = inputs[i];
-
+      
       for (let k = 0; k < items.length; k++) {
         values[i].items[k].value = '';
       }
-    }
 
-    console.log(values);
+      inputs[i].active = false;
+    }
+    
+    console.log(inputs);
+    
     setInputs(values);
     requestItems(values);
   }, [ requestItems ]);
@@ -126,15 +129,9 @@ const FiltersContent: FunctionComponent<IFiltersContent> = ({ filters, tags, req
   // render
   return (
     <>
-      <div className="filters--title">
-        <button className="btn-more" onClick={() => onClear(inputs)}>
-          <span className="material-icons">clear</span>
-          <span className="text">Filtros</span>
-        </button>
-      </div>
-
       <FiltersTabs
         items={inputs}
+        onClearInputs={onClearInputs}
         onChange={onChange} />
     </>
   )

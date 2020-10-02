@@ -19,20 +19,21 @@ const House: FunctionComponent<IHouse> = ({ item }) => {
 
   // images
   const images: any = parse(item.content.rendered, {
-    replace: ({ attribs, name, children }) => {
+    replace: ({ attribs, name, children }: any) => {
       if (!attribs) return null;
 
-      if (attribs && attribs.class === 'wp-block-image')
+      if (attribs && (attribs.class === 'wp-block-gallery' || attribs.class === 'wp-block-image')) {
         return children;
+      }
     }
   });
-
+  
   // render
   return (
     <div className="house" data-active={active}>
       {item.content &&
         <>
-          <HouseGallery current={0} active={active} item={item} items={filterImages(images)} />
+          <HouseGallery active={active} item={item} items={filterImages(images)} />
           <HouseInfo active={active} item={item} setActive={setActive} />
         </>}
     </div>

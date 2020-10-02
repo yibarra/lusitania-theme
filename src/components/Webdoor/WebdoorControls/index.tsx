@@ -9,7 +9,11 @@ const WebdoorControls: FunctionComponent<IWebdoorControls> = ({ current, count, 
   // render
   return (
     <div className="webdoor--controls">
-      <button className="btn-arrow" data-prev onClick={() => onPrevNext('prev')} disabled={current === 0}>
+      <button
+        className="btn-arrow"
+        data-prev
+        onClick={() => onPrevNext('prev')}
+        disabled={current === 0}>
         <span className="icon"></span>
       </button>
 
@@ -20,7 +24,11 @@ const WebdoorControls: FunctionComponent<IWebdoorControls> = ({ current, count, 
           </li>)}
       </ul>
 
-      <button className="btn-arrow" data-next onClick={() => onPrevNext('next')} disabled={current >= (count - 1)}>
+      <button
+        className="btn-arrow"
+        data-next
+        onClick={() => onPrevNext('')}
+        disabled={current >= (count - 1)}>
         <span className="icon"></span>
       </button>
     </div>

@@ -1,15 +1,15 @@
 import React, { FunctionComponent } from 'react';
 
-import FiltersHeader from '../FiltersHeader';
 import FiltersBody from '../FiltersBody';
-import SliderBase from '../../Slider/Base';
+import FiltersHeader from '../FiltersHeader';
+import SliderTabs from '../../Slider/Tabs';
 
 import { IFiltersTabs } from './interfaces';
 
 import './filters-tabs.scss';
 
 // filters body
-const FiltersTabs: FunctionComponent<IFiltersTabs> = ({ current, items, setCurrent, onChange, onClearInputs }) => {
+const FiltersTabs: FunctionComponent<IFiltersTabs> = ({ current, filters, items, setCurrent, onChange, onClearInputs }) => {
   // render
   return (
     <div className="filters--tabs">
@@ -22,9 +22,10 @@ const FiltersTabs: FunctionComponent<IFiltersTabs> = ({ current, items, setCurre
       <FiltersBody
         current={current}
         items={items}
+        filters={filters}
         onChange={onChange} />
     </div>
   );
 };
 
-export default SliderBase(FiltersTabs);
+export default SliderTabs(FiltersTabs);

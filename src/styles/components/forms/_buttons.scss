@@ -8,6 +8,7 @@
   @include box-display;
   border: none;
   background: transparent;
+  cursor: pointer;
   outline: none;
   position: relative;
   transition: all 300ms $base-ease;
@@ -57,10 +58,11 @@
     box-sizing: border-box;
     border: 2px solid $black-900;
     margin: 0;
+    left: -50%;
     height: 40px;
     padding: 0;
     pointer-events: auto;
-    transform: rotate(45deg);
+    transform: rotate(45deg) translate(-8px, 8px);
     transform-origin: center;
     width: 40px;
   }
@@ -70,16 +72,17 @@
   }
 
   &[data-prev] {
-    left: 20px;
+    left: 10px;
 
     .icon {
       border-right: none;
       border-top: none;
+      transform: rotate(45deg) translate(8px, -8px);
     }
   }
 
   &[data-next] {
-    right: 20px;
+    right: 10px;
 
     .icon {
       border-left: none;

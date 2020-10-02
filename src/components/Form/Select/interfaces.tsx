@@ -1,7 +1,5 @@
 export interface ISelect {
-  options: any;
-  label: any;
+  item: any;
   placeholder?: string;
   onChange: (value: any) => any;
-  value: any;
 };

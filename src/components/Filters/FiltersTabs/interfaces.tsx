@@ -1,4 +1,5 @@
 export interface IFiltersTabs {
+  filters: any[];
   items: any[];
   current: number;
   onChange: (value: any, id: any, items: any) => any;

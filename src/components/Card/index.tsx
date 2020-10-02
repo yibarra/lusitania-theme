@@ -15,23 +15,24 @@ import './card.scss';
 // card house
 const Card: FunctionComponent<ICard> = ({ item }) => {
   // uses
-  const { filterImages } = UseFilterImage();
+  const { filterImagesMulti } = UseFilterImage();
   const { title }: any = item;
   
   // images
   const images: any = parse(item.content.rendered, {
-    replace: ({ attribs, name, children }) => {
+    replace: ({ attribs, name, children }: any) => {
       if (!attribs) return null;
-      
-      if (attribs && attribs.class === 'wp-block-image')
-      return children;
+
+      if (attribs && (attribs.class === 'wp-block-gallery' || attribs.class === 'wp-block-image')) {
+        return children;
+      }
     }
   });
   
   // render
   return (
     <div className="card">
-      <CardGallery current={0} items={filterImages(images)} />
+      <CardGallery items={filterImagesMulti(images)} />
 
       <div className="card--info">
         <h4 dangerouslySetInnerHTML={{ __html: title.rendered }} />

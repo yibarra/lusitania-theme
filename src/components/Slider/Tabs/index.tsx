@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Slider HOC
-export default function SliderBase(Component: any) {
+export default function SliderTabs(Component: any) {
   const base: any = class extends React.Component {
     // constructor
     constructor (props: any) {
@@ -9,7 +9,7 @@ export default function SliderBase(Component: any) {
 
       this.state = {
         direction: 'none',
-        current: 0,
+        current: undefined,
         last: undefined,
       };
 
@@ -71,7 +71,7 @@ export default function SliderBase(Component: any) {
     }
   };
 
-  base.displayName = `SliderBase(${Component.displayName || Component.name})`;
+  base.displayName = `SliderTabs(${Component.displayName || Component.name})`;
 
   return base;
 };

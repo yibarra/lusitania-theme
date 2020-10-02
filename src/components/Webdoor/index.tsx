@@ -27,7 +27,7 @@ const Webdoor: FunctionComponent<IWebdoor> = ({ category, getPostByCategoryName 
   // render
   return (
     <div className="webdoor">
-      <WebdoorContent current={0} items={items} />
+      {items.length > 0 && <WebdoorContent items={items} />}
     </div>
   );
 };

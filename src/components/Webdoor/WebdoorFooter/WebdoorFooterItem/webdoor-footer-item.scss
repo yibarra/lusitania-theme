@@ -46,6 +46,24 @@
           }
         }
 
+        .blocks-gallery {
+          &-grid {
+            margin: 0;
+            padding: 0;
+          }
+    
+          &-item {
+            display: none;
+            float: left;
+            height: 100%;
+            width: 100%;
+
+            &:first-child {
+              display: inline-block;
+            }
+          }
+        }
+
         &:after {
           background-color: rgba($brown-900, 0.3);
           content: '';

@@ -17,11 +17,12 @@ const WebdoorItem: FunctionComponent<IWebdoorItem> = ({ display, drag, i, x, ite
 
   // images
   const images: any = parse(item.content.rendered, {
-    replace: ({ attribs, name, children }) => {
+    replace: ({ attribs, name, children }: any) => {
       if (!attribs) return null;
 
-      if (attribs && attribs.class === 'wp-block-image')
+      if (attribs && (attribs.class === 'wp-block-gallery' || attribs.class === 'wp-block-image')) {
         return children;
+      }
     }
   });
 

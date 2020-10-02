@@ -1,4 +1,7 @@
 import React, { FunctionComponent, memo, useCallback, useEffect, useState } from 'react';
+import parse from 'html-react-parser';
+
+import UseFilterImage from '../../../../uses/UseFilterImage';
 
 import { IWebdoorFooterItem } from './interfaces';
 
@@ -7,6 +10,7 @@ import './webdoor-footer-item.scss';
 // webdoor footer item
 const WebdoorFooterItem: FunctionComponent<IWebdoorFooterItem> = ({ current, last, index, rendered }) => {
   const [ animation, setAnimation ] = useState({ animationFinished: false });
+  const { filterImages } = UseFilterImage();
 
   // on animation start
   const onAnimationStart = useCallback(() => {
@@ -17,6 +21,17 @@ const WebdoorFooterItem: FunctionComponent<IWebdoorFooterItem> = ({ current, las
   const onAnimationEnd = useCallback(() => {
     setAnimation({ animationFinished: true });
   }, [ setAnimation ]);
+
+  // images
+  const images: any = parse(rendered, {
+    replace: ({ attribs, name, children }: any) => {
+      if (!attribs) return null;
+
+      if (attribs && (attribs.class === 'wp-block-gallery' || attribs.class === 'wp-block-image')) {
+        return children;
+      }
+    }
+  });
 
   // use effect
   useEffect(() => {
@@ -34,8 +49,9 @@ const WebdoorFooterItem: FunctionComponent<IWebdoorFooterItem> = ({ current, las
         <div
           className="images"
           onAnimationEnd={onAnimationEnd}
-          onAnimationStart={onAnimationStart}
-          dangerouslySetInnerHTML={{ __html: rendered }} key={index} />
+          onAnimationStart={onAnimationStart}>
+            {filterImages(images)}
+        </div>
           
         <p className="text-info">{current === true ? 'Seguinte': 'Anterior'}</p>
     </div>

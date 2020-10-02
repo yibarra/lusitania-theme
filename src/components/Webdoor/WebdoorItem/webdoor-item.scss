@@ -6,6 +6,7 @@
     position: absolute;
     width: 100%;
     will-change: transform;
+    user-select: none;
 
     figure {
       box-sizing: border-box;
@@ -29,6 +30,24 @@
 
       &:first-child {
         display: inline-block;
+      }
+    }
+
+    .blocks-gallery {
+      &-grid {
+        margin: 0;
+        padding: 0;
+      }
+
+      &-item {
+        display: none;
+        float: left;
+        height: 100%;
+        width: 100%;
+
+        &:first-child {
+          display: inline-block;
+        }
       }
     }
 

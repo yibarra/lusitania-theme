@@ -1,45 +1,43 @@
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/fonts';
 
+@import '../../../styles/components/animations';
+
 @import '../../../styles/tools/mixins';
 
 .select {
-  &-search {
-    box-sizing: border-box;
-    display: inline-block;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  vertical-align: top;
+
+  &--container {
+    float: left;
     position: relative;
     width: 100%;
+    vertical-align: top;
+  }
 
-    &__input,
-    &__option,
-    &__options,
-    &__select,
-    &__row,
-    &__value {
-      box-sizing: border-box;
-      display: inline-block;
-      position: relative;
-      vertical-align: top;
-    }
+  &--component {
+    background-color: $white-600;
+    box-sizing: border-box;
+    border: 1px solid $brown-900;
+    border-top: none;
+    display: none;
+    left: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    vertical-align: top;
 
-    &__input {
-      @include font($font-default, 11px, 400, $brown-900);
-      background: $white-600;
-      border: 1px solid $brown-900;
-      letter-spacing: 0.01em;
-      line-height: 1em;
-      outline: none;
-      padding: 11px 20px 10px;
-      text-align: left;
-      text-overflow: ellipsis;
-      text-transform: uppercase;
-      width: 100%;
-      white-space: nowrap;
-    }
-
-    &__option {
+    &--item {
       @include font($font-default, 11px, 400, $brown-900);
       border: none;
+      border-bottom: 1px solid $brown-900;
       float: left;
       line-height: 1em;
       overflow: hidden;
@@ -47,139 +45,62 @@
       text-overflow: ellipsis;
       padding: 15px 20px;
       position: relative;
+      pointer-events: auto;
       text-transform: uppercase;
+      transition: all 400ms $base-ease;
       text-align: left;
       width: 100%;
       white-space: nowrap;
+      user-select: none;
 
-      &.is-selected {
+      &[data-active="true"],
+      &:hover {
         background-color: $brown-900;
         color: $white-600;
         width: 100%;
       }
 
-      &[disabled] {
+      &[data-disabled] {
         background-color: $white-600;
         color: $brown-900;
         opacity: 0.7;
       }
-    }
-
-    &__options {
-      border: none;
-      cursor: pointer;
-      list-style: none;
-      margin: 0;
-      outline: none;
-      padding: 0;
-      text-align: left;
-      width: 100%;
-    }
-
-    &__row {
-      border: none;
-      border-bottom: 1px solid $brown-900;
-      float: left;
-      text-align: left;
-      width: 100%;
-      vertical-align: top;
 
       &:last-child {
         border-bottom: none;
       }
     }
+  }
 
-    &__select {
-      background: $white-600;
-      border: 1px solid $brown-900;
-      border-top: none;
-      border-radius: 0;
-      top: 100%;
-      width: 100%;
+  &--title {
+    @include font($font-default, 11px, 400, $brown-900);
+    background: $white-600;
+    border: 1px solid $brown-900;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    line-height: 1em;
+    outline: none;
+    padding: 11px 20px 10px;
+    text-align: left;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    width: 100%;
+    white-space: nowrap;
+
+    span {
+      color: $brown-900;
+      right: 10px;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
     }
+  }
 
-    &__value {
-      width: 100%;
-      z-index: 1;
-
-      &:after {
-        content: '';
+  &[data-active="true"] {
+    .select {
+      &--component {
         display: inline-block;
-        height: 8px;
-        right: 20px;
-        position: absolute;
-        top: calc(50% - 7px);
-        width: 8px;
-      }
-    }
-
-    &.is-disabled {
-      opacity: 0.5;
-    }
-
-    &:not(.select-search--multiple) {
-      .select-search__input:hover { 
-        border-color: $brown-900;
-      }
-
-      .select-search__select {
-        right: 0;
-        left: 0;
-        max-height: 360px;
-        position: absolute;
-        overflow: auto;
-        z-index: 2;
       }
     }
   }
-}
-
-.select-search__input:not([readonly]):focus {
-  cursor: initial;
-}
-
-.select-search__option.is-highlighted,
-.select-search__option:not(.is-selected):hover {
-  //background-color: rgba($brown-900, 0.2);
-}
-
-.select-search__group-header {
-  background-color: $white-600;
-  padding: 10px 20px;
-}
-
-.select-search:not(.is-disabled) .select-search__input {
-  cursor: pointer;
-}
-
-.select-search--multiple {
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.select-search:not(.is-loading):not(.select-search--multiple) .select-search__value::after {
-  transform: rotate(45deg);
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
-  pointer-events: none;
-}
-
-.select-search--multiple .select-search__input {
-  cursor: initial;
-}
-
-.select-search--multiple .select-search__input {
-  border-radius: 3px 3px 0 0;
-}
-
-.select-search--multiple:not(.select-search--search) .select-search__input {
-  cursor: default;
-}
-
-.select-search--multiple .select-search__select {
-  border-radius: 0 0 3px 3px;
-  border-top: 1px solid $brown-900;
-  max-height: 260px;
-  overflow: auto;
-  position: relative;
 }

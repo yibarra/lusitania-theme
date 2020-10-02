@@ -1,6 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 
 import { CategoriesProvider } from '../CategoriesProvider';
+import FiltersProvider from '../FiltersProvider';
 import { PostProvider } from '../PostProvider';
 import { TagsProvider } from '../TagsProvider';
 
@@ -13,11 +14,13 @@ const MainProvider: FunctionComponent<IMainProvider> = ({ children }) => {
     <CategoriesProvider>
       <TagsProvider>
         <PostProvider>
-          {children}
+          <FiltersProvider>
+            {children}
+          </FiltersProvider>
         </PostProvider>
       </TagsProvider>
     </CategoriesProvider>
   );
 };
 
-export default MainProvider;
+export default memo(MainProvider);

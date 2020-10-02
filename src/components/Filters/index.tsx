@@ -1,10 +1,9 @@
-import React, { FunctionComponent, memo, useCallback, useContext, useEffect } from 'react';
+import React, { FunctionComponent, memo, useContext, useEffect } from 'react';
 
-import FiltersContent from './FiltersContent';
+import FiltersTabs from './FiltersTabs';
 
 import { FiltersContext } from '../../providers/FiltersProvider';
 import { PostContext } from '../../providers/PostProvider';
-import { TagsContext } from '../../providers/TagsProvider';
 
 import { IFilters } from './interfaces';
 
@@ -14,41 +13,15 @@ import './filters.scss';
 const Filters: FunctionComponent<IFilters> = () => {
   const filtersContext: any = useContext(FiltersContext);
   const postsContext: any = useContext(PostContext);
-  const tagsContext: any = useContext(TagsContext);
 
   const { posts }: any = postsContext;
-  const { result, filters, getFilters, getFiltersQuery }: any = filtersContext;
-  const { tags }: any = tagsContext;
+  const { filters, result, inputs, getFilters, onClearInputs }: any = filtersContext;
 
-  // create query
-  const createQuery = useCallback((values: any []) => {
-    const metas: any [] = [];
-
-    for (let value of values) {
-      if (value instanceof Object)
-        metas.push(`filter[meta_key]=${value.id}&filter[meta_value]=${value.value}`);
-    }
-    
-    getFiltersQuery(metas);
-  }, [ getFiltersQuery ]);
-  
-  // get items
-  const requestItems = useCallback((items: any []) => {
-    const inputs: any [] = items.filter((item :any) => item.active === true);
-    let values: any [] = [];
-
-    for (let input of inputs) {
-      if (input instanceof Object) {
-        for (let value of input.items) {
-          if (value instanceof Object && value.value !== '') {
-            values.push(value);
-          }
-        }
-      }
-    }
-
-    createQuery(values);
-  }, [ createQuery ]);
+  const tabs = [
+    { title: 'localização', type: 'location' },
+    { title: 'caracteristicas', type: 'options'},
+    { title: 'mais filtros', type: 'tags' }
+  ];
 
   // use effect
   useEffect(() => {
@@ -57,12 +30,11 @@ const Filters: FunctionComponent<IFilters> = () => {
 
   // render
   return (
-    <div className="filters" data-active={result.length > 0}>
-      {filters &&
-        <FiltersContent
-          filters={filters}
-          tags={tags}
-          requestItems={requestItems} />}
+    <div className="filters" data-active={result.length > 0 && filters.lenght > 0}>
+      <FiltersTabs
+        filters={inputs}
+        items={tabs}
+        onClearInputs={onClearInputs}  />
     </div>
   )
 };

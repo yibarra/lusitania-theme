@@ -13,3 +13,11 @@
   vertical-align: top;
   z-index: 999;
 }
+
+/* --- QUERIES --- */
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .header {
+    height: 50px;
+  }
+}

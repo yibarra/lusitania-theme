@@ -1,31 +1,31 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState, memo } from 'react';
 
 import FiltersBody from '../FiltersBody';
 import FiltersHeader from '../FiltersHeader';
-import SliderTabs from '../../Slider/Tabs';
 
 import { IFiltersTabs } from './interfaces';
 
 import './filters-tabs.scss';
 
 // filters body
-const FiltersTabs: FunctionComponent<IFiltersTabs> = ({ current, filters, items, setCurrent, onChange, onClearInputs }) => {
+const FiltersTabs: FunctionComponent<IFiltersTabs> = ({ items, countFilters, onClearFilters }) => {
+  const [ current, setCurrent ]: any = useState(null);
+
   // render
   return (
     <div className="filters--tabs">
       <FiltersHeader
         current={current}
         items={items}
-        onClearInputs={onClearInputs}
+        countFilters={countFilters}
+        onClearFilters={onClearFilters}
         setCurrent={setCurrent} />
 
       <FiltersBody
         current={current}
-        items={items}
-        filters={filters}
-        onChange={onChange} />
+        items={items} />
     </div>
   );
 };
 
-export default SliderTabs(FiltersTabs);
+export default memo(FiltersTabs);

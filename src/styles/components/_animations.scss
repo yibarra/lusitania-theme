@@ -37,10 +37,8 @@ $base-ease: cubic-bezier(0.25, 0.46, 0.45, 0.84);
  @keyframes slide-in-top {
   0% {
     transform: translateY(-100%);
-    opacity: 0;
   }
   100% {
     transform: translateY(0);
-    opacity: 1;
   }
 }

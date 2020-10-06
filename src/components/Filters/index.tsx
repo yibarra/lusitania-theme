@@ -1,40 +1,49 @@
-import React, { FunctionComponent, memo, useContext, useEffect } from 'react';
+import React, { FunctionComponent, memo, useCallback } from 'react';
 
 import FiltersTabs from './FiltersTabs';
-
-import { FiltersContext } from '../../providers/FiltersProvider';
-import { PostContext } from '../../providers/PostProvider';
 
 import { IFilters } from './interfaces';
 
 import './filters.scss';
 
 // filters
-const Filters: FunctionComponent<IFilters> = () => {
-  const filtersContext: any = useContext(FiltersContext);
-  const postsContext: any = useContext(PostContext);
-
-  const { posts }: any = postsContext;
-  const { filters, result, inputs, getFilters, onClearInputs }: any = filtersContext;
-
+const Filters: FunctionComponent<IFilters> = ({ inputs, results, onClearFilters }) => {
   const tabs = [
     { title: 'localização', type: 'location' },
     { title: 'caracteristicas', type: 'options'},
     { title: 'mais filtros', type: 'tags' }
   ];
 
-  // use effect
-  useEffect(() => {
-    getFilters(posts);
-  }, [ posts, getFilters ]);
+  // count filters
+  const countFilters = useCallback((id?: string) => {
+    let count: number = 0;
+
+    for (let key of Object.keys(inputs)) {
+      const input: any = inputs[key];
+
+      if (id) {
+        if (id === input.type) {
+          if (input.value !== '')
+            ++count;
+        }
+      } else {
+        if (input.value !== '')
+          ++count;
+      }
+    }
+
+    return count > 0;
+  }, [ inputs ]);
 
   // render
   return (
-    <div className="filters" data-active={result.length > 0 && filters.lenght > 0}>
+    <div
+      className="filters"
+      data-active={results.length > 0 && countFilters()}>
       <FiltersTabs
-        filters={inputs}
         items={tabs}
-        onClearInputs={onClearInputs}  />
+        countFilters={countFilters}
+        onClearFilters={onClearFilters} />
     </div>
   )
 };

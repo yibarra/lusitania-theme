@@ -70,11 +70,11 @@ const WebdoorContent: FunctionComponent<IWebdoorContent> = ({ current, items, la
       <div className="webdoor--content">
         {props.map(({ x, display }, i) => (
           <WebdoorItem 
-            drag={drag} 
-            items={items} 
+            drag={drag}
+            items={items}
             display={display}
-            x={x} 
-            i={i} 
+            x={x}
+            i={i}
             key={i} />))}
       </div>
 

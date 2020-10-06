@@ -1,4 +1,6 @@
-import React, { FunctionComponent, memo, useCallback, useEffect, useState } from 'react';
+import React, { FunctionComponent, useCallback, useState, useRef, memo } from 'react';
+
+import UseClickOutSide from '../../../uses/UseClickOutSide';
 
 import { ISelect } from './interfaces';
 
@@ -6,26 +8,24 @@ import './select.scss';
 
 // select
 const Select: FunctionComponent<ISelect> = ({ item, placeholder, onChange }) => {
+  const ref: any = useRef();
+
   // state
   const [ active, setActive ]: any = useState(false);
-  const [ value, setValue ]: any = useState('');
-  const { options, label } = item;
+  const { options, label, value, disabled } = item;
   
   // onChangeValue
   const onChangeValue = useCallback((value: any) => {
     setActive(false);
-    setValue(value);
     onChange(value);
   }, [ onChange ]);
 
-  // use effect
-  useEffect(() => {
-    console.log(value, 'please');
-  }, [ value ]);
+  // click out
+  UseClickOutSide(ref, () => setActive(false));
 
   // render
   return (
-    <div className="select--container">
+    <div className="select--container" ref={ref} data-disabled={disabled}>
       <label className="input-label">{label}</label>
       <div className="select" data-active={active}>
         <div className="select--title" onClick={() => setActive(!active)}>

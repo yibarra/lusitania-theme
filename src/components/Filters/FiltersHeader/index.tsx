@@ -1,26 +1,26 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { FunctionComponent, memo, useCallback } from 'react';
 
 import { IFiltersHeader } from './interfaces';
 
 import './filters-header.scss';
 
 // filters header
-const FiltersHeader: FunctionComponent<IFiltersHeader> = ({ current, setCurrent, items, onClearInputs }) => {
+const FiltersHeader: FunctionComponent<IFiltersHeader> = ({ current, countFilters, setCurrent, items, onClearFilters }) => {
   // render
   return (
     <div className="filters--header">
       <ul className="filters--header--list">
-        {items && items.map(({ title, active }: any, index: number) =>
+        {items && items.map(({ type, title }: any, index: number) =>
           <li className="filters--header--item" data-active={current === index} key={index}>
             <button
               className="btn-tab"
-              data-active={active}
+              data-active={countFilters(type)}
               onClick={() => setCurrent(current !== index ? index : null)}>{title}</button>
           </li>)}
       </ul>
 
-      <div className="filters--header--clear">
-        <button className="btn-more" onClick={() => onClearInputs(items)}>
+      <div className="filters--header--clear" data-active={countFilters()}>
+        <button className="btn-more" onClick={() => onClearFilters()}>
           <span className="material-icons">clear</span>
           <span className="text">Limpar Filtros</span>
         </button>

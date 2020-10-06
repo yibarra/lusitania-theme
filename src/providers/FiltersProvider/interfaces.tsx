@@ -1,11 +1,11 @@
 import { ReactNode } from 'react';
 
 export interface IFiltersContext {
-  result: any[];
+  results: any[];
   inputs: any[];
-  filters: any[];
   getFilters: (posts: any[]) => any;
   onChange: (value: any, id: any, inputs: any) => void;
+  onClearFilters: (value: any) => any;
 }
 
 export interface IFiltersProvider {

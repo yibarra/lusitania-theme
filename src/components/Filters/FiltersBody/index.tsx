@@ -7,7 +7,7 @@ import { IFiltersBody } from './interfaces';
 import './filters-body.scss';
 
 // filters body
-const FiltersBody: FunctionComponent<IFiltersBody> = ({ current, items, filters }) => {
+const FiltersBody: FunctionComponent<IFiltersBody> = ({ current, items }) => {
   // render
   return (
     <div className="filters--body">
@@ -17,7 +17,7 @@ const FiltersBody: FunctionComponent<IFiltersBody> = ({ current, items, filters 
             className="filters--body--item"
             data-active={current === index}
             key={index}>
-            <FiltersItem item={item} filters={filters} />
+            <FiltersItem item={item} />
           </li>)}
       </ul>
     </div>

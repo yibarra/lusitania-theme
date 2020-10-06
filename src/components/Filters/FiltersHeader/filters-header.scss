@@ -26,6 +26,7 @@
 
     &--clear {
       bottom: 15px;
+      display: none;
       right: calc((100vw - 1000px) / 2);
       pointer-events: none;
       position: absolute;
@@ -35,6 +36,10 @@
         pointer-events: auto;
         position: relative;
         z-index: 13;
+      }
+
+      &[data-active="true"] {
+        display: inline-block;
       }
     }
 

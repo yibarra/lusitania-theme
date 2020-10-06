@@ -1,6 +1,7 @@
 export interface IFiltersHeader {
   items: any[];
   current: number;
+  countFilters: (value?: string) => any;
   setCurrent: (value: any) => void;
-  onClearInputs: (value: any) => any;
+  onClearFilters: () => any;
 }

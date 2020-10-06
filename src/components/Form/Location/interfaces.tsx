@@ -1,3 +1,5 @@
 export interface ILocation {
-  filters?: any;
+  inputs?: any;
+  results: any;
+  onChange: (event: any, id: any, results: any) => any;
 }

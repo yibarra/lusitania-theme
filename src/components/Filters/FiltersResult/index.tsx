@@ -11,15 +11,15 @@ import './filters-result.scss';
 // filters results
 const FiltersResult: FunctionComponent<IFiltersResult> = () => {
   const filterContext = useContext(FiltersContext);
-  const { result } = filterContext;
+  const { results } = filterContext;
 
   // render
   return (
     <div
       className="filters--result"
-      data-active={result.length > 0}>
+      data-active={results.length > 0}>
         <ul className="filters--result--list">
-          {result && result.map((item: any, index: number) =>
+          {results && results.map((item: any, index: number) =>
             <li className="filters--result--item" key={index}>
               <Card item={item} />
             </li>)}

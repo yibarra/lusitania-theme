@@ -17,6 +17,11 @@
     position: relative;
     width: 100%;
     vertical-align: top;
+
+    &[data-disabled="true"] {
+      opacity: 0.7;
+      pointer-events: none;
+    }
   }
 
   &--component {

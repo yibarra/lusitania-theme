@@ -1,5 +1,6 @@
 import React, { FunctionComponent, memo, useCallback } from 'react';
 
+import FiltersResult from './FiltersResult';
 import FiltersTabs from './FiltersTabs';
 
 import { IFilters } from './interfaces';
@@ -7,7 +8,7 @@ import { IFilters } from './interfaces';
 import './filters.scss';
 
 // filters
-const Filters: FunctionComponent<IFilters> = ({ inputs, results, onClearFilters }) => {
+const Filters: FunctionComponent<IFilters> = ({ inputs, results, onFilterItems, onClearFilters }) => {
   const tabs = [
     { title: 'localização', type: 'location' },
     { title: 'caracteristicas', type: 'options'},
@@ -44,6 +45,9 @@ const Filters: FunctionComponent<IFilters> = ({ inputs, results, onClearFilters 
         items={tabs}
         countFilters={countFilters}
         onClearFilters={onClearFilters} />
+
+      <FiltersResult
+        results={onFilterItems(results, inputs)} />
     </div>
   )
 };

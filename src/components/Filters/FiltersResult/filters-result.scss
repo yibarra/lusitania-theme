@@ -1,18 +1,21 @@
 @import '../../../styles/settings/colors';
 
+@import '../../../styles/settings/grid';
+
 .filters {
   &--result {
     background-color: $white-900;
     box-sizing: border-box;
-    display: none;
     height: auto;
     position: relative;
-    padding: 40px 0;
+    padding: 0;
     text-align: center;
     width: 100vw;
+    z-index: 1;
 
     &--item,
-    &--list {
+    &--list,
+    &--title {
       box-sizing: border-box;
       display: inline-block;
       position: relative;
@@ -29,13 +32,33 @@
 
     &--list {
       background-color: $white-900;
-      max-width: 1000px;
+      max-width: $page-width;
       margin: 0;
-      padding: 0;
+      padding: 20px 0;
+      width: 100%;
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    &--title {
+      display: none;
+      max-width: $page-width;
+      margin: 200px auto 0;
+      padding: 5px 5px 0;
+      text-align: left;
       width: 100%;
     }
 
     &[data-active="true"] {
+      .filters {
+        &--result {
+          &--title {
+            display: inline-block;
+          }
+        }
+      }
       display: inline-block;
     }
   }

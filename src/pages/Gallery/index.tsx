@@ -12,7 +12,7 @@ import './gallery.scss';
 // gallery
 const Gallery: FunctionComponent<IGallery> = ({ categories }) => {
   const filtersContext = useContext(FiltersContext);
-  const { inputs, results, onClearFilters } = filtersContext;
+  const { inputs, results, onClearFilters, onFilterItems } = filtersContext;
 
   // render
   return (
@@ -20,6 +20,7 @@ const Gallery: FunctionComponent<IGallery> = ({ categories }) => {
       <Filters
         inputs={inputs}
         results={results}
+        onFilterItems={onFilterItems}
         onClearFilters={onClearFilters} />
 
       <Category

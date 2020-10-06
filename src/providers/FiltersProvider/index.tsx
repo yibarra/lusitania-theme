@@ -248,7 +248,8 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
       }
     }
 
-    const filterItems: any = getUpdateFilters(filterResult(item, results, inputs), id);
+    const resultsFilters = filterResult(item, results, inputs);
+    const filterItems: any = getUpdateFilters(resultsFilters, id);
 
     if (filterItems instanceof Object && Object.keys(filterItems).length) {
       switch (id) {
@@ -301,7 +302,7 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
     setInputs(item, id);
   }, [ inputs, setInputs, filterResult, getUpdateFilters ]);
 
-  // on on clear filters
+  // on clear filters
   const onClearFilters = useCallback(() => {
     const items: any = inputs;
 
@@ -324,6 +325,29 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
     }
   }, [ inputs, setInputs ]);
 
+  // on filter items
+  const onFilterItems = useCallback((posts: any, inputs: any) => {
+    if (inputs instanceof Object === false || posts instanceof Object === false) return false;
+
+    let items: any = [];
+
+    for (let k of Object.keys(inputs)) {
+      const input = inputs[k];
+
+      if (input instanceof Object) {
+        const { id, value }: any = input;
+
+        if (value !== '') {
+          items = posts.filter(({ acf }: any) => {
+            return acf[id] === value;
+          });
+        }
+      }
+    }
+
+    return items;
+  }, []);
+
   // use effect
   useEffect(() => {
     if (posts.length > 0)
@@ -337,7 +361,8 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
       inputs,
       getFilters,
       onChange,
-      onClearFilters
+      onClearFilters,
+      onFilterItems
     }}>
       {children}
     </FiltersContext.Provider>

@@ -75,6 +75,10 @@
         display: inline-block;
         pointer-events: auto;
       }
+
+      &:empty {
+        display: none;
+      }
     }
 
     &--list {

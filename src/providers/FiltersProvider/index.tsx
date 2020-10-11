@@ -81,7 +81,7 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
     tags: {
       id: 'tags',
       value: '',
-      ooptions: [],
+      options: [],
       label: 'Mais Filtros',
       type: 'tags'
     }
@@ -116,7 +116,7 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
   }, [ inputs ]);
 
   // get filters posts
-  const getFilters = useCallback((posts) => {
+  const getFilters = useCallback(() => {
     if (posts instanceof Object === false) return false;
 
     const areas: any[] = [];
@@ -162,13 +162,12 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
 
     setInputsFilter({ cities, districts, councils, neighs, types, zones });
     setResults(posts);
-  }, [ checkItemArray, setInputsFilter ]);
+  }, [ checkItemArray, setInputsFilter, posts ]);
 
   // get update filters posts
   const getUpdateFilters = useCallback((posts: any[], id: string) => {
     if (posts instanceof Object === false) return false;
 
-    const areas: any[] = [];
     const districts: any[] = [];
     const councils: any[] = [];
     const neighs: any[] = [];
@@ -180,7 +179,7 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
       const item = posts[i];
 
       if (item instanceof Object) {
-        const { acf: { area, conselho, distrito, freguesia, zona } } = item;
+        const { acf: { conselho, distrito, freguesia, zona, tipo } } = item;
           
         if (checkItemArray(districts, distrito) && id === 'cidade') {
           districts.push(distrito);
@@ -204,8 +203,8 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
           zones.push(zona);
         }
           
-        if (checkItemArray(areas, area) && id === 'area') {
-          areas.push(area);
+        if (checkItemArray(types, tipo) && id === 'tipo') {
+          types.push(tipo);
         }
       }
     }
@@ -224,18 +223,26 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
   }, [ checkItemArray ]);
 
   // filter results
-  const filterResult = useCallback((input: any, posts: any, inputs: any) => {
+  const filterResult = useCallback((posts: any, inputs: any) => {
     if (inputs instanceof Object === false || posts instanceof Object === false) return false;
 
     return posts.filter(({ acf }: any) => {
-      const { id, value } = input;
+      let check: any = [];
 
-      return acf[id] === value;
+      for (let key of Object.keys(inputs)) {
+        const inputItem = inputs[key];
+        const { id, value } = inputItem;
+        
+        if (value !== '')
+          check.push(value === acf[id]);
+      }
+
+      return !check.includes(false);
     });
   }, []);
 
   // on change
-  const onChange = useCallback((value: any, id: string, results: any) => {
+  const onChange = useCallback((value: any, id: string) => {
     let item: any;
     const items: any = inputs;
     
@@ -245,10 +252,12 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
       if (input.id === id) {
         item = input;
         item.value = value;
+
+        setInputs(item, id);
       }
     }
 
-    const resultsFilters = filterResult(item, results, inputs);
+    const resultsFilters = filterResult(posts, inputs);
     const filterItems: any = getUpdateFilters(resultsFilters, id);
 
     if (filterItems instanceof Object && Object.keys(filterItems).length) {
@@ -298,9 +307,7 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
         break;
       }
     }
-
-    setInputs(item, id);
-  }, [ inputs, setInputs, filterResult, getUpdateFilters ]);
+  }, [ inputs, setInputs, filterResult, getUpdateFilters, posts ]);
 
   // on clear filters
   const onClearFilters = useCallback(() => {
@@ -317,6 +324,10 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
             item.disabled = true;
           }
 
+          if (item.id === 'tipo') {
+            item.disabled = false;
+          }
+
           setInputs(item, item.id);
         }
       }
@@ -325,33 +336,10 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
     }
   }, [ inputs, setInputs ]);
 
-  // on filter items
-  const onFilterItems = useCallback((posts: any, inputs: any) => {
-    if (inputs instanceof Object === false || posts instanceof Object === false) return false;
-
-    let items: any = [];
-
-    for (let k of Object.keys(inputs)) {
-      const input = inputs[k];
-
-      if (input instanceof Object) {
-        const { id, value }: any = input;
-
-        if (value !== '') {
-          items = posts.filter(({ acf }: any) => {
-            return acf[id] === value;
-          });
-        }
-      }
-    }
-
-    return items;
-  }, []);
-
   // use effect
   useEffect(() => {
     if (posts.length > 0)
-      getFilters(posts);
+      getFilters();
   }, [ posts ]);
 
   // render
@@ -362,7 +350,7 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
       getFilters,
       onChange,
       onClearFilters,
-      onFilterItems
+      filterResult
     }}>
       {children}
     </FiltersContext.Provider>

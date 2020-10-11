@@ -7,10 +7,10 @@ import { IFiltersResult } from './interfaces';
 import './filters-result.scss';
 
 // filters results
-const FiltersResult: FunctionComponent<IFiltersResult> = ({ results }) => {
+const FiltersResult: FunctionComponent<IFiltersResult> = ({ results, countFilters }) => {
   // render
   return (
-    <div className="filters--result" data-active={results.length > 0}>
+    <div className="filters--result" data-active={countFilters()}>
       <div className="filters--result--title">
         <p>Resultado <span>{results.length}</span></p>
       </div>

@@ -1,16 +1,12 @@
-import React, { FunctionComponent, memo, useContext } from 'react';
-
-import { FiltersContext } from '../../../providers/FiltersProvider';
+import React, { FunctionComponent, memo } from 'react';
 
 import Location from '../../Form/Location';
+import Features from '../../Form/Features';
 
 import { IFiltersItem } from './interfaces';
 
 // filters item
-const FiltersItem: FunctionComponent<IFiltersItem> = ({ item }) => {
-  const filtersContext = useContext(FiltersContext);
-  const { inputs, results, onChange } = filtersContext;
-
+const FiltersItem: FunctionComponent<IFiltersItem> = ({ item, inputs, results, onChange }) => {
   const { type } = item;
 
   // render
@@ -18,6 +14,12 @@ const FiltersItem: FunctionComponent<IFiltersItem> = ({ item }) => {
     <>
       {type === 'location' &&
         <Location
+          inputs={inputs}
+          results={results}
+          onChange={onChange} />}
+      
+      {type === 'options' &&
+        <Features
           inputs={inputs}
           results={results}
           onChange={onChange} />}

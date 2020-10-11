@@ -6,7 +6,7 @@ export interface IFiltersContext {
   getFilters: (posts: any[]) => any;
   onChange: (value: any, id: any, inputs: any) => void;
   onClearFilters: (value: any) => any;
-  onFilterItems: (posts: any, inputs: any) => any;
+  filterResult: (posts: any, inputs: any) => any;
 }
 
 export interface IFiltersProvider {

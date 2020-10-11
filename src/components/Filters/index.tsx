@@ -8,7 +8,7 @@ import { IFilters } from './interfaces';
 import './filters.scss';
 
 // filters
-const Filters: FunctionComponent<IFilters> = ({ inputs, results, onFilterItems, onClearFilters }) => {
+const Filters: FunctionComponent<IFilters> = ({ inputs, results, filterResult, onClearFilters }) => {
   const tabs = [
     { title: 'localização', type: 'location' },
     { title: 'caracteristicas', type: 'options'},
@@ -47,7 +47,8 @@ const Filters: FunctionComponent<IFilters> = ({ inputs, results, onFilterItems, 
         onClearFilters={onClearFilters} />
 
       <FiltersResult
-        results={onFilterItems(results, inputs)} />
+        countFilters={countFilters}
+        results={filterResult(results, inputs)} />
     </div>
   )
 };

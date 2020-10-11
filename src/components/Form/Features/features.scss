@@ -1,0 +1,13 @@
+.features {
+  float: left;
+  position: relative;
+  width: 100%;
+  vertical-align: top;
+
+  &--item {
+    float: left;
+    position: relative;
+    width: calc(100% / 4);
+    vertical-align: top;
+  }
+}

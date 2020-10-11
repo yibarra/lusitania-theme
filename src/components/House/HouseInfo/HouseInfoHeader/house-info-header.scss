@@ -26,3 +26,16 @@
     }
   }
 }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .house {
+    &--info {
+      &--header {
+        .btn-map {
+          top: 10px;
+        }
+      }
+    }
+  }
+}

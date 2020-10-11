@@ -36,3 +36,17 @@
     }
   }
 }
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .cart {
+    &--info {
+      padding: 20px;
+
+      .btn-more {
+        margin: 10px 0 0;
+        right: -30px;
+      }
+    }
+  }
+}

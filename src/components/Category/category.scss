@@ -21,3 +21,17 @@
     }
   }
 }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .category {
+    padding: 0
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .category {
+    padding: 0;
+  }
+}

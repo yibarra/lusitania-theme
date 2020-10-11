@@ -22,3 +22,32 @@
     }
   }
 }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .category {
+    &--item {
+      &--list {
+        margin: 0;
+        width: 100%;
+
+        &--item {
+          width: calc(100% / 2);
+        }
+      }
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .category {
+    &--item {
+      &--list {
+        &--item {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -10,6 +10,7 @@
   background: transparent;
   cursor: pointer;
   outline: none;
+  pointer-events: auto;
   position: relative;
   transition: all 300ms $base-ease;
 }

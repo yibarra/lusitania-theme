@@ -80,3 +80,22 @@
     }
   }
 }
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  .category {
+    &--list {
+      padding: 60px 0;
+      
+      &--item {
+        &[data-active="true"] {
+          padding-top: 30px;
+        }
+
+        &:first-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

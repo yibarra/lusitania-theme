@@ -10,3 +10,13 @@
     z-index: 2;
   }
 }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .category {
+    &--header {
+      left: 10px;
+      top: 70px;
+    }
+  }
+}

@@ -102,6 +102,11 @@
     &--info {
       &--attributes {
         padding: 40px 0;
+        width: 100%;
+
+        &--list {
+          width: 100%;
+        }
 
         .list--tags {
           margin: 20px 0;

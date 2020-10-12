@@ -1,26 +1,28 @@
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/fonts';
 
+@import '../../../styles/components/forms/buttons';
 @import '../../../styles/components/animations';
 @import '../../../styles/tools/mixins';
 
 .header {
-  &--nav {
-    box-sizing: border-box;
-    display: inline-block;
+  &-nav {
     padding: 0 0 0 50px;
     vertical-align: top;
 
+    &--mobile,
+    &--item,
+    &--list {
+      margin: 0;
+      position: relative;
+    }
+
     &--item {
       @include font($font-default, 12px, 400, $brown-900);
-      box-sizing: border-box;
-      display: inline-block;
       line-height: 1em;
       height: 60px;
       letter-spacing: 0.01em;
-      margin: 0;
       padding: 26px 20px;
-      position: relative;
       text-decoration: none;
       text-transform: uppercase;
       vertical-align: top;
@@ -61,6 +63,41 @@
         }
       }
     }
+
+    &--list {
+      list-style: none;
+      padding: 0;
+    }
+
+    &--mobile {
+      @extend %btn-clear;
+      display: none;
+      outline: none;
+      right: 10px;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      user-select: none;
+
+      .material-icons {
+        color: $brown-900;
+        display: none;
+
+        &:first-child {
+          display: inline-block;
+        }
+      }
+
+      &[data-active="true"] {
+        .material-icons {
+          display: none;
+
+          &:last-child {
+            display: inline-block;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -68,12 +105,17 @@
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
   .header {
-    &--nav {
+    &-nav {
+      padding: 0;
+      width: 100%;
+
       &--item {
         height: auto;
         padding: 19px 20px;
 
         &.logo {
+          z-index: 2;
+          
           .icon {
             @include rem('font-size', 20px);
           }
@@ -82,6 +124,40 @@
         &.active {
           &:before {
             height: 2px;
+          }
+        }
+      }
+
+      &--list {
+        align-items: center;
+        align-content: center;
+        background-color: $white-900;
+        display: none;
+        flex-flow: row wrap;
+        justify-content: center;
+        height: 100vh;
+        left: -100%;
+        padding: 0;
+        top: 0;
+        width: 100%;
+
+        .header-nav {
+          &--item {
+            text-align: center;
+            width: 100%;
+          }
+        }
+      }
+
+      &--mobile {
+        display: inline-block;
+      }
+      
+      &[data-open="true"] {
+        .header-nav {
+          &--list {
+            display: inline-flex;
+            left: 0;
           }
         }
       }

@@ -1,5 +1,5 @@
 import React, { FunctionComponent, memo } from 'react';
-import Nouislider from 'react-nouislider';
+import Nouislider from "nouislider-react";
 
 import { ISlider } from './interfaces';
 

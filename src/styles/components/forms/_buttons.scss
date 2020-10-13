@@ -215,3 +215,14 @@
     }
   }
 }
+
+.btn-submit {
+  @extend %btn-clear;
+  @include font($font-default, 12px, 400, $white-900);
+  background-color: $brown-900;
+  letter-spacing: 0.02em;
+  line-height: 1em;
+  text-transform: uppercase;
+  padding: 15px 20px;
+  width: 100%;
+}

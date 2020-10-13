@@ -9,6 +9,7 @@ import Gallery from '../../pages/Gallery';
 import HousePage from '../../pages/HousePage';
 
 import { IContent } from './interfaces';
+import Contact from '../../pages/Contact';
 
 // content
 const Content: FunctionComponent<IContent> = () => {
@@ -26,19 +27,29 @@ const Content: FunctionComponent<IContent> = () => {
         <Route
           exact
           path="/">
-          <Home getPostByCategoryName={getPostByCategoryName} categories={categories} />
+          <Home
+            getPostByCategoryName={getPostByCategoryName}
+            categories={categories} />
         </Route>
 
         <Route
           exact
           path="/gallery">
-          <Gallery categories={categories} />
+          <Gallery
+            categories={categories} />
         </Route>
 
         <Route
           exact
           path={'/gallery/:id'}>
-            <HousePage getCustomPostById={getCustomPostById} />
+            <HousePage
+              getCustomPostById={getCustomPostById} />
+        </Route>
+
+        <Route
+          path={'/contact'}>
+          <Contact
+            getPostByCategoryName={getPostByCategoryName} />
         </Route>
       </Switch>
     </>

@@ -1,0 +1,25 @@
+@import '../../../styles/settings/colors';
+
+.form-contact {
+  align-items: center;
+  align-content: center;
+  display: inline-flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  float: right;
+  height: 100%;
+  position: relative;
+  width: 50%;
+
+  form {
+    align-items: center;
+    align-content: center;
+    display: inline-flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    float: right;
+    max-width: 320px;
+    position: relative;
+    width: 100%;
+  }
+}

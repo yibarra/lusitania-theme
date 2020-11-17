@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7e1fbb29e6c60b5dbb7e1462ee1df8ae",
+    "revision": "752e727a855c207e01954b0ef1d8afa7",
     "url": "/lusitania-theme/index.html"
   },
   {
-    "revision": "6d7f49ef265f211c6948",
+    "revision": "d9ec63623f2e93c83ef0",
     "url": "/lusitania-theme/static/css/main.846a0785.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/lusitania-theme/static/js/2.38c31023.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6d7f49ef265f211c6948",
-    "url": "/lusitania-theme/static/js/main.00b57b60.chunk.js"
+    "revision": "d9ec63623f2e93c83ef0",
+    "url": "/lusitania-theme/static/js/main.98f14263.chunk.js"
   },
   {
     "revision": "0eb8174f526f1ca41cab",

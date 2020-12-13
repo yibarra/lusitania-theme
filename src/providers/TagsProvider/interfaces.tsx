@@ -7,4 +7,5 @@ export interface ITagsContext {
 
 export interface ITagsProvider {
   children: ReactNode;
+  url: string;
 }

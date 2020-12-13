@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useContext } from 'react';
+import React, { FC, useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { CategoriesContext } from '../../providers/CategoriesProvider';
@@ -12,7 +12,7 @@ import { IContent } from './interfaces';
 import Contact from '../../pages/Contact';
 
 // content
-const Content: FunctionComponent<IContent> = () => {
+const Content: FC<IContent> = () => {
   // context
   const categoriesContext: any = useContext(CategoriesContext);
   const postContext: any = useContext(PostContext);
@@ -24,36 +24,24 @@ const Content: FunctionComponent<IContent> = () => {
   return (
     <>
       <Switch>
-        <Route
-          exact
-          path="/">
-          <Home
-            getPostByCategoryName={getPostByCategoryName}
-            categories={categories} />
+        <Route exact path="/">
+          <Home getPostByCategoryName={getPostByCategoryName} categories={categories} />
         </Route>
 
-        <Route
-          exact
-          path="/gallery">
-          <Gallery
-            categories={categories} />
+        <Route exact path="/gallery">
+          <Gallery categories={categories} />
         </Route>
 
-        <Route
-          exact
-          path={'/gallery/:id'}>
-            <HousePage
-              getCustomPostById={getCustomPostById} />
+        <Route exact path={'/gallery/:id'}>
+            <HousePage getCustomPostById={getCustomPostById} />
         </Route>
 
-        <Route
-          path={'/contact'}>
-          <Contact
-            getPostByCategoryName={getPostByCategoryName} />
+        <Route path={'/contact'}>
+          <Contact getPostByCategoryName={getPostByCategoryName} />
         </Route>
       </Switch>
     </>
   );
 };
 
-export default memo(Content);
+export default Content;

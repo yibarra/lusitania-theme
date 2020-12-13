@@ -1,4 +1,4 @@
-import React, { memo, FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
 import HeaderNav from './HeaderNav';
 
@@ -7,13 +7,16 @@ import { IHeader } from './interfaces';
 import './header.scss';
 
 // header
-const Header: FunctionComponent<IHeader> = () => {
+const Header: FC<IHeader> = () => {
   // render
   return (
     <header className="header">
-      <HeaderNav />
+      <HeaderNav items={[
+        { to: '/gallery', className: 'header-nav--item', text: 'galeria' },
+        { to: '/contact', className: 'header-nav--item', text: 'contato' }
+      ]} />
     </header>
   );
 };
 
-export default memo(Header);
+export default Header;

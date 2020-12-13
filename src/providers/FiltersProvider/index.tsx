@@ -1,4 +1,4 @@
-import React, { createContext, FunctionComponent, useState, useCallback, useReducer, useEffect, useContext } from 'react';
+import React, { createContext, useState, useCallback, useReducer, useEffect, useContext, FC } from 'react';
 import { PostContext } from '../PostProvider';
 
 import { IFiltersContext, IFiltersProvider } from './interfaces';
@@ -25,7 +25,7 @@ const reducer = (state: any, action: any) => {
 };
 
 // filters provider
-const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
+const FiltersProvider: FC<IFiltersProvider> = ({ children }) => {
   const postsContext = useContext(PostContext);
   const { posts } = postsContext;
 
@@ -86,6 +86,7 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
       type: 'tags'
     }
   });
+
   const [ results, setResults ]: any = useState([]);
 
   // check item array
@@ -338,9 +339,9 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
 
   // use effect
   useEffect(() => {
-    if (posts.length > 0)
+    if (Array.isArray(posts) && posts.length > 0)
       getFilters();
-  }, [ posts ]);
+  }, [ posts, getFilters ]);
 
   // render
   return (
@@ -359,92 +360,3 @@ const FiltersProvider: FunctionComponent<IFiltersProvider> = ({ children }) => {
 
 export { FiltersContext, FiltersProvider };
 export default FiltersProvider;
-
-/*
-
-3 for (let index in temp) {
-      const input: any = temp[index];
-
-      if (input instanceof Object && input.id === id) {
-        temp[index].value = value;
-
-        if (value !== '') {
-          getUpdateFilters(filterResult(input, results, inputs), id);
-        }
-      }
-    }
-
-
-switch (i) {
-            case 'districts':
-              filters['districts'].value = '';
-              filters['districts'].disabled = false;
-
-              filters['councils'].value = '';
-              filters['councils'].disabled = true;
-
-              filters['neighs'].value = '';
-              filters['neighs'].disabled = true;
-
-              filters['zones'].value = '';
-              filters['zones'].disabled = true;
-            break;
-            case 'councils':
-              filters['councils'].value = '';
-              filters['councils'].disabled = false;
-
-              filters['neighs'].value = '';
-              filters['neighs'].disabled = true;
-
-              filters['zones'].value = '';
-              filters['zones'].disabled = true;
-            break;
-            case 'neighs':
-              filters['neighs'].value = '';
-              filters['neighs'].disabled = false;
-
-              filters['zones'].value = '';
-              filters['zones'].disabled = false;
-            break;
-            default:
-              break;
-
-  const [ inputs, setInputs ]: any = useState({
-    cities: {
-      id: 'cidade',
-      value: '',
-      options: [],
-      label: 'Cidade',
-      disabled: false
-    },
-    districts: {
-      id: 'distrito',
-      value: '',
-      options: [],
-      label: 'Distrito',
-      disabled: true
-    }, 
-    councils: {
-      id: 'conselho',
-      value: '',
-      options: [],
-      label: 'Conselho',
-      disabled: true
-    },
-    neighs: {
-      id: 'freguesia',
-      value: '',
-      options: [],
-      label: 'Freguesia',
-      disabled: true
-    },
-    zones: {
-      id: 'zona',
-      value: '',
-      options: [],
-      label: 'Zona',
-      disabled: true
-    }
-  });
-
-  */

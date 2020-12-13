@@ -54,7 +54,7 @@ const Contact = () => {
             </label>
 
             <button className="btn-submit" type="submit" disabled={isSubmitting}>
-              Enviar
+              Enviar Mensagem
             </button>
           </Form>
         )}

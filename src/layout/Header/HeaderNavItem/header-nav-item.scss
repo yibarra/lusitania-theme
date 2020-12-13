@@ -1,0 +1,86 @@
+@import '../../../styles/settings/colors';
+@import '../../../styles/settings/fonts';
+
+@import '../../../styles/components/forms/buttons';
+@import '../../../styles/components/animations';
+@import '../../../styles/tools/mixins';
+
+.header {
+  &-nav {
+    &--item {
+      @include font($font-default, 12px, 400, $brown-900);
+      line-height: 1em;
+      height: 60px;
+      margin: 0;
+      letter-spacing: 0.01em;
+      padding: 26px 20px;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      vertical-align: top;
+
+      &:before {
+        background-color: $brown-900;
+        bottom: 0;
+        box-sizing: border-box;
+        content: '';
+        height: 0;
+        left: 0;
+        position: absolute;
+        transition: all 200ms $base-ease;
+        transition-delay: 0;
+        width: 100%;
+      }
+
+      &.logo {
+        left: 0;
+        height: 100%;
+        padding: 20px 30px;
+        position: absolute;
+        top: 0;
+
+        .icon {
+          @include rem('font-size', 24px);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      &.active {
+        &:before {
+          height: 5px;
+          transition-delay: 200ms;
+        }
+      }
+    }
+  }
+}
+
+/* --- QUERIES --- */
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .header {
+    &-nav {
+      &--item {
+        height: auto;
+        padding: 19px 20px;
+
+        &.logo {
+          z-index: 2;
+          
+          .icon {
+            @include rem('font-size', 20px);
+          }
+        }
+
+        &.active {
+          &:before {
+            height: 2px;
+          }
+        }
+      }
+    }
+  }
+}

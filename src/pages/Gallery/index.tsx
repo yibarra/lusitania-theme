@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useContext } from 'react';
+import React, { FC, useContext } from 'react';
 
 import Category from '../../components/Category';
 import Filters from '../../components/Filters';
@@ -10,7 +10,7 @@ import { IGallery } from './interfaces';
 import './gallery.scss';
 
 // gallery
-const Gallery: FunctionComponent<IGallery> = ({ categories }) => {
+const Gallery: FC<IGallery> = ({ categories }) => {
   const filtersContext = useContext(FiltersContext);
   const { inputs, results, onClearFilters, filterResult } = filtersContext;
 
@@ -29,4 +29,4 @@ const Gallery: FunctionComponent<IGallery> = ({ categories }) => {
   );
 };
 
-export default memo(Gallery);
+export default Gallery;

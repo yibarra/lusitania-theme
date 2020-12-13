@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { FC } from 'react';
 import MainProvider from '../../providers/MainProvider';
 
 import Content from '../Content';
@@ -8,7 +8,8 @@ import Loader from '../../components/Loader';
 import '../../styles/main.scss';
 
 // main
-const Main = () => {
+const Main: FC<any> = () => {
+  // render
   return (
     <MainProvider>
       <Loader />
@@ -18,4 +19,4 @@ const Main = () => {
   );
 };
 
-export default memo(Main);
+export default Main;

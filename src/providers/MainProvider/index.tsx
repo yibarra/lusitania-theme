@@ -1,19 +1,21 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { FC } from 'react';
 
 import { CategoriesProvider } from '../CategoriesProvider';
-import FiltersProvider from '../FiltersProvider';
+import { FiltersProvider } from '../FiltersProvider';
 import { PostProvider } from '../PostProvider';
 import { TagsProvider } from '../TagsProvider';
 
 import { IMainProvider } from './interfaces';
 
+const { REACT_APP_KEY_ACF_POST, REACT_APP_URL_SERVER } = process.env;
+
 // Main Provider
-const MainProvider: FunctionComponent<IMainProvider> = ({ children }) => {
+const MainProvider: FC<IMainProvider> = ({ children }) => {
   // render
   return (
-    <CategoriesProvider>
-      <TagsProvider>
-        <PostProvider>
+    <CategoriesProvider url={`${REACT_APP_URL_SERVER}categories`}>
+      <TagsProvider url={`${REACT_APP_URL_SERVER}tags`}>
+        <PostProvider url={`/${REACT_APP_KEY_ACF_POST}?per_page=100`}>
           <FiltersProvider>
             {children}
           </FiltersProvider>
@@ -23,4 +25,4 @@ const MainProvider: FunctionComponent<IMainProvider> = ({ children }) => {
   );
 };
 
-export default memo(MainProvider);
+export default MainProvider;

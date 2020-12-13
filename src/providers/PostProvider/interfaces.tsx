@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-
 export interface IPostContext {
   getQuery: (query: string) => any;
   getPostByCategoryId: (type: string, id: number) => any;
@@ -8,7 +7,7 @@ export interface IPostContext {
   getCustomPostById: (type: string, value: number) => any;
   posts: any[];
 }
-
 export interface IPostProvider {
-  children: ReactNode
+  children: ReactNode;
+  url: string;
 }

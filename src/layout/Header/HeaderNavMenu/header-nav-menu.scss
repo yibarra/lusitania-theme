@@ -1,0 +1,46 @@
+@import '../../../styles/settings/colors';
+@import '../../../styles/settings/fonts';
+
+@import '../../../styles/components/forms/buttons';
+@import '../../../styles/components/animations';
+@import '../../../styles/tools/mixins';
+
+.header {
+  &-nav {
+    &--list {
+      margin: 0;
+      list-style: none;
+      padding: 0;
+      position: relative;
+    }
+  }
+}
+
+/* --- QUERIES --- */
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .header {
+    &-nav {
+      &--list {
+        align-items: center;
+        align-content: center;
+        background-color: $white-900;
+        display: none;
+        flex-flow: row wrap;
+        justify-content: center;
+        height: 100vh;
+        left: -100%;
+        padding: 0;
+        top: 0;
+        width: 100%;
+
+        .header-nav {
+          &--item {
+            text-align: center;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
